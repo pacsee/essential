@@ -1,7 +1,7 @@
 #!/bin/sh
 cd ~
 
-git clone git@github.com:pacsee/essential.git
+git clone git@github.com:pacsee/essential.git ~/essential
 
 git pull
 git submodule sync
