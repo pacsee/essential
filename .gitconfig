@@ -1,0 +1,42 @@
+[user]
+	email = csaba.palankai@gmail.com
+	name = Csaba Palankai
+[color]
+    ui = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[alias]
+    tree = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
+    bigtree = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
+    showcommits  = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
+    who = "!sh -c 'git log -i -1 --pretty=\"format::%an <%ae>\n\" --author=\"$1\"' -"
+    whathere = show -s --pretty='tformat::%h (%s, %ad)' --date=short
+    whatthere = !sh -c 'git fetch' && git log --oneline HEAD..origin/$1
+    whatmastathere = !sh -c 'git fetch' && git log --oneline HEAD..origin/master
+    whoisthere = !sh -c 'git shortlog HEAD..origin/$0'
+    whostheremasta = !sh -c 'git shortlog HEAD..origin/master'
+
+    showtags = show-ref --tags
+    pushtags = push --tags
+    tagswithdate = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
+    fuckup = reset --hard
+    fuckuper = blame
+
+    whatthehell = help
+    cleanup  = clean
+    cleanall = !sh -c 'git clean -x' && git reset --hard
+
+[push]
+	default = upstream
