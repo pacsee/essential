@@ -18,3 +18,5 @@ ln -bs ~/essential/.gic-config ~/.gitconfig
 ln -bs ~/essential/.ps1_vcs  ~/.ps1_vcs
 ln -bs ~/essential/.pythonstartup.py ~/.pythonstartup.py
 
+sudo apt-get install exuberant-ctags
+sudo easy_install flake8
