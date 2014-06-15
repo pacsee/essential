@@ -178,6 +178,7 @@ let g:pymode_lint_write = 0
 let g:pymode_utils_whitespaces = 0
 let g:pymode_rope_complete_on_dot = 1
 let g:pymode_rope_completion = 1
+let g:pymode_doc=0
 
 let g:pymode_lint = 0
 " }}}
