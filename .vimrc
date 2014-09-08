@@ -6,6 +6,8 @@ let mapleader = ","
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+set hlsearch
+
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -137,7 +139,7 @@ NeoBundle 'Conque-Shell'
 
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
-NeoBundle 'mhinz/vim-startify'
+" NeoBundle 'mhinz/vim-startify'
 
 " require python2.7
 NeoBundle 'dbsr/vimpy'
@@ -265,8 +267,8 @@ endif
 " ---------------
 syntax enable
 
-set nohlsearch
-set textwidth=120
+" set nohlsearch
+" set textwidth=120
 set autoread                    " Automatically reload changes if detected
 set wildmenu                    " Turn on WiLd menu
 set history=768                 " Number of things to remember in history.
@@ -289,10 +291,10 @@ set wildignore+=*~
 set winaltkeys=no
 set sidescrolloff=5             " set printoptions=paper:letter
 set ignorecase
-if &columns < 124
-    set columns=124
+if &columns < 80
+    set columns=80
 endif
-set colorcolumn=160
+set colorcolumn=80
 
 set splitbelow                  " Split windows at bottom
 set splitright
@@ -628,4 +630,32 @@ EOF
 
 let NERDTreeQuitOnOpen = 1
 let g:NERDTreeWinSize = 60
+
+" AutoHighlightToggle()
+
+" set keymodel=startsel,stopsel
+" set selection=exclusive
+
+
+
+" 'grep' command should use 'grp' bash function, a wrapper for system grep
+" which adds some common flags, like --exclude-dir=\.git.
+" We add '-n' into that mix, so that output is parsable by vim quickfix window.
+set grepprg=grp\ -n\ $*\ /dev/null
+
+" make commands invoked by grep go via an interactive shell
+" Without this, the bash alias 'grp' in 'grpprg' is not expanded
+set shellcmdflag=-ci
+
+" silent grep and then show results in quickfix
+function! Grep(args)
+    execute "silent grep " . a:args
+    botright copen
+endfunction
+
+command! -nargs=* -complete=file Grep call Grep(<q-args>)
+
+" Grep all files for the word under the cursor (& case insensitive version)
+noremap <Leader>g :Grep -w '<c-r><c-w>' .<cr>
+noremap <Leader>G :Grep -wi '<c-r><c-w>' .<cr>
 
