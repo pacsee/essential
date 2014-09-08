@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/workspace/sportrm'
+let g:netrw_dirhist_2='/workspace/sportrm/applications'
+let g:netrw_dirhist_3='/workspace/sportrm/applications/console'
+let g:netrw_dirhist_4='/workspace/sportrm/applications/console/static'
+let g:netrw_dirhist_5='/workspace/sportrm/applications/console/static/console'
