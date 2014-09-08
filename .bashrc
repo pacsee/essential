@@ -254,3 +254,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+
+export PATH=/home/pcsaba/bin/Sencha/Cmd/5.0.0.160:$PATH
+
+export SENCHA_CMD_3_0_0="/home/pcsaba/bin/Sencha/Cmd/5.0.0.160"

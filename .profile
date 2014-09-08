@@ -8,6 +8,9 @@ test -z "$PROFILEREAD" && . /etc/profile || true
 
 # Prefix to PATH ###############################
 
+if [ -d "$HOME/Sencha/Cmd/5.0.0.160" ] ; then
+    PATH="$HOME/Sencha/Cmd/5.0.0.160:$PATH"
+fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
@@ -81,3 +84,7 @@ fi
 # run .bashrc if we're in an interactive shell, e.g. in tmux
 case $- in *i*) . ~/.bashrc;; esac
 
+
+export PATH=/home/pcsaba/bin/Sencha/Cmd/5.0.0.160:$PATH
+
+export SENCHA_CMD_3_0_0="/home/pcsaba/bin/Sencha/Cmd/5.0.0.160"
