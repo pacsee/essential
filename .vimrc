@@ -236,7 +236,7 @@ nmap <silent> <leader>s :set nolist!<cr>
 nmap <silent> <leader>S ms:%s/\s\+$//<cr>`s
 
 " key to toggle line numbers
-set nonumber
+" set nonumber
 nmap <leader>n :set number!<cr>
 
 " toggle between last two buffers
@@ -355,9 +355,9 @@ cnoremap <c-v> <c-r>+
 
 " save file
 noremap <silent> <c-s> :wa<cr>
-inoremap <silent> <c-s> <c-o>:wa<cr>
+inoremap <silent> <c-s> <ESC>:wa<cr>
 
-" save file
+" quit file
 noremap <silent> <c-q> :qa<cr>
 inoremap <silent> <c-q> <c-o>:qa<cr>
 
@@ -484,6 +484,7 @@ au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl SetGLSLFileType
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
 set colorcolumn=80
-
+set nu
 set splitbelow                  " Split windows at bottom
 set splitright
+autocmd BufWritePre *.py :%s/\s\+$//e
