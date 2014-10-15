@@ -52,7 +52,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Tagbar'
 
-
 " search-next wraps back to start of file
 set wrapscan
 
@@ -488,3 +487,4 @@ set nu
 set splitbelow                  " Split windows at bottom
 set splitright
 autocmd BufWritePre *.py :%s/\s\+$//e
+let g:PyFlakeDefaultComplexity=5

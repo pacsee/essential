@@ -6,6 +6,7 @@
 # BATS stuff ###################################
 test -z "$PROFILEREAD" && . /etc/profile || true
 
+
 # Prefix to PATH ###############################
 
 if [ -d "$HOME/Sencha/Cmd/5.0.0.160" ] ; then
@@ -86,5 +87,7 @@ case $- in *i*) . ~/.bashrc;; esac
 
 
 export PATH=/home/pcsaba/bin/Sencha/Cmd/5.0.0.160:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export MANPATH=/opt/local/share/man:$MANPATH
 
 export SENCHA_CMD_3_0_0="/home/pcsaba/bin/Sencha/Cmd/5.0.0.160"

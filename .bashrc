@@ -4,6 +4,9 @@
 #----------------------------------------
 # environment vars related to interactive command-line use
 
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export MANPATH=/opt/local/share/man:$MANPATH
+
 # PS1
 case $- in
 
@@ -94,8 +97,8 @@ alias df='df -h'
 alias du='du -h'
 alias ls='ls $LS_OPTIONS'
 #alias ll='ls $LS_OPTIONS -lG'
-alias ll='ls -lAFh --color=always'
-alias la='ls $LS_OPTIONS -lGa'
+alias ll='gls -lAFh --color=always'
+alias la='gls $LS_OPTIONS -lGa'
 alias mv='mv -i'
 alias rm='rm -i'
 alias less='less -R' # display raw control characters for colors only
@@ -254,7 +257,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export MANPATH=/opt/local/share/man:$MANPATH
 
-export PATH=/home/pcsaba/bin/Sencha/Cmd/5.0.0.160:$PATH
-
+#export PATH=/home/pcsaba/bin/Sencha/Cmd/5.0.0.160:$PATH
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
 export SENCHA_CMD_3_0_0="/home/pcsaba/bin/Sencha/Cmd/5.0.0.160"
