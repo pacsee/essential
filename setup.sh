@@ -3,6 +3,11 @@
 #git clone git@github.com:pacsee/essential.git ~/essential
 
 #cd ~/essential
+# prerequisites
+# -------------
+# 
+# sudo apt-get install exuberant-ctags
+# sudo easy_install flake8
 
 git pull
 git submodule init
