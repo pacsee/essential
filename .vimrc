@@ -487,4 +487,13 @@ set nu
 set splitbelow                  " Split windows at bottom
 set splitright
 autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.js :%s/\s\+$//e
+autocmd BufWritePre *.html :%s/\s\+$//e
+autocmd BufWritePre *.css :%s/\s\+$//e
+autocmd BufWritePre *.php :%s/\s\+$//e
+autocmd BufWritePre *.java :%s/\s\+$//e
+autocmd BufWritePre *.sql :%s/\s\+$//e
+autocmd BufWritePre *.c :%s/\s\+$//e
+autocmd BufWritePre *.cpp :%s/\s\+$//e
+
 let g:PyFlakeDefaultComplexity=5
