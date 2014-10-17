@@ -497,3 +497,8 @@ autocmd BufWritePre *.c :%s/\s\+$//e
 autocmd BufWritePre *.cpp :%s/\s\+$//e
 
 let g:PyFlakeDefaultComplexity=5
+"noremap <buffer> <F7> :PyFlake<CR>
+
+nnoremap <f7> <ESC>:PyFlake<cr>
+imap <f7> <ESC>:PyFlake<cr>
+let NERDTreeIgnore = ['\.pyc$']
