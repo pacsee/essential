@@ -496,9 +496,7 @@ autocmd BufWritePre *.sql :%s/\s\+$//e
 autocmd BufWritePre *.c :%s/\s\+$//e
 autocmd BufWritePre *.cpp :%s/\s\+$//e
 
-let g:PyFlakeDefaultComplexity=5
-"noremap <buffer> <F7> :PyFlake<CR>
+let g:flake8_max_complexity=5
+let g:flake8_select='W,E'
 
-nnoremap <f7> <ESC>:PyFlake<cr>
-imap <f7> <ESC>:PyFlake<cr>
 let NERDTreeIgnore = ['\.pyc$']
