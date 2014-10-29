@@ -488,6 +488,7 @@ set splitright
 autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.sh :%s/\s\+$//e
 autocmd BufWritePre *.js :%s/\s\+$//e
+autocmd BufWritePre *.json :%s/\s\+$//e
 autocmd BufWritePre *.html :%s/\s\+$//e
 autocmd BufWritePre *.xml :%s/\s\+$//e
 autocmd BufWritePre *.css :%s/\s\+$//e
