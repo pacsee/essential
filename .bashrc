@@ -89,6 +89,10 @@ if [ "$TERM" != "dumb" ]; then
     eval `dircolors -b $HOME/.dircolors`
 fi
 
+if ! hash gls 2>/dev/null; then
+    alias gls=ls
+fi
+
 #----------------------------------------
 # options to coreutils
 # Require latest gnu coreutils, probably don't work with Mac's old built-in ones
