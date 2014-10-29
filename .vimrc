@@ -49,7 +49,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Tagbar'
 
 " search-next wraps back to start of file
@@ -487,8 +486,10 @@ set nu
 set splitbelow                  " Split windows at bottom
 set splitright
 autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.sh :%s/\s\+$//e
 autocmd BufWritePre *.js :%s/\s\+$//e
 autocmd BufWritePre *.html :%s/\s\+$//e
+autocmd BufWritePre *.xml :%s/\s\+$//e
 autocmd BufWritePre *.css :%s/\s\+$//e
 autocmd BufWritePre *.php :%s/\s\+$//e
 autocmd BufWritePre *.java :%s/\s\+$//e
@@ -499,4 +500,7 @@ autocmd BufWritePre *.cpp :%s/\s\+$//e
 let g:flake8_max_complexity=5
 let g:flake8_select='W,E'
 
-let NERDTreeIgnore = ['\.pyc$']
+set tags=tags,../tags,../../tags,../../../tags
+
+" let g:NERDTreeWinSize=60
+" let NERDTreeIgnore = ['\.pyc$']

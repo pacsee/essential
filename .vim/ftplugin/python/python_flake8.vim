@@ -90,7 +90,7 @@ if !exists("*Flake8()")
         " open cwindow
         let has_results=getqflist() != []
         if has_results
-            execute s:flake8_quickfix_location." copen"
+            execute s:flake8_quickfix_location." botright copen"
             setlocal wrap
             nnoremap <buffer> <silent> c :cclose<CR>
             nnoremap <buffer> <silent> q :cclose<CR>

@@ -1,2 +1,3 @@
 *.py[co]
 .vim/bundle/.neobundle/
+.vim/.netrwhist
