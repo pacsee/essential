@@ -85,12 +85,14 @@ if ls --group-directories-first >/dev/null 2>&1; then
 fi
 export LS_OPTIONS
 
-if [ "$TERM" != "dumb" ]; then
+if [ "$TERM" != "dumb" ] && [ hash dircolors 2>/dev/null ]; then
     eval `dircolors -b $HOME/.dircolors`
 fi
 
 if ! hash gls 2>/dev/null; then
-    alias gls=ls
+    alias gls='ls --group-directories-first -G'
+else
+    alias gls='gls --group-directories-first -G'
 fi
 
 #----------------------------------------
