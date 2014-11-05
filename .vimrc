@@ -482,6 +482,7 @@ au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl SetGLSLFileType
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
 set colorcolumn=80
+set linebreak
 set nu
 set splitbelow                  " Split windows at bottom
 set splitright
