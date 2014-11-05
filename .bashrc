@@ -26,7 +26,15 @@ case $- in
 
   . ~/.ps1_vcs
 
-  export PS1="$_USER@$_HOST:$_PWD\$(${dvcs_function})\n$_PROMPT "
+  running_jobs="
+    J=\$(jobs -l)
+    if [ -n \"\$J\" ]; then
+        jobs -l
+        echo \"\n\"
+    fi
+  "
+
+  export PS1="$_USER@$_HOST:$_PWD\$(${dvcs_function})\n\$(${running_jobs})$_PROMPT "
   unset _PRE _POST _DIM_CYAN _BRIGHT_CYAN _RESET _USER _HOST _PWD _PROMPT
 
   # Whenever displaying the prompt, append history to disk

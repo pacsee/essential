@@ -489,6 +489,7 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.sh :%s/\s\+$//e
 autocmd BufWritePre *.js :%s/\s\+$//e
 autocmd BufWritePre *.json :%s/\s\+$//e
+autocmd BufWritePre *.yml :%s/\s\+$//e
 autocmd BufWritePre *.html :%s/\s\+$//e
 autocmd BufWritePre *.xml :%s/\s\+$//e
 autocmd BufWritePre *.css :%s/\s\+$//e
@@ -505,3 +506,10 @@ set tags=tags,../tags,../../tags,../../../tags
 
 " let g:NERDTreeWinSize=60
 " let NERDTreeIgnore = ['\.pyc$']
+
+map <ESC>[H <Home>
+map <ESC>[F <End>
+imap <ESC>[H <C-O><Home>
+imap <ESC>[F <C-O><End>
+cmap <ESC>[H <Home>
+cmap <ESC>[F <End>
