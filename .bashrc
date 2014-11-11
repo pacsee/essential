@@ -271,7 +271,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:~/bin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 
 #export PATH=/home/pcsaba/bin/Sencha/Cmd/5.0.0.160:$PATH
