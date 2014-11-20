@@ -191,6 +191,10 @@ function pytags {
     rm_tags
     ctags -R --languages=python $*
 }
+function webtags {
+    rm_tags
+    ctags -R --extra=+f --links=no
+}
 
 # git stuff
 function glog {
@@ -271,9 +275,14 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export PATH=/opt/local/bin:/opt/local/sbin:~/bin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:~/Bin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 
 #export PATH=/home/pcsaba/bin/Sencha/Cmd/5.0.0.160:$PATH
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
 export SENCHA_CMD_3_0_0="/home/pcsaba/bin/Sencha/Cmd/5.0.0.160"
+
+
+export WORKON_HOME=$HOME/.envs
+export PROJECT_HOME=$HOME/work
+source /usr/local/bin/virtualenvwrapper.sh
