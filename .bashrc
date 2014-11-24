@@ -192,7 +192,6 @@ function pytags {
     ctags -R --languages=python $*
 }
 function webtags {
-    rm_tags
     ctags -R --extra=+f --links=no
 }
 
