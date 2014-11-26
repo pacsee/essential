@@ -56,7 +56,7 @@ colorscheme solarized
 if has('win32') || has('win64')
     set guifont=DejaVu\ Sans\ Mono:h9
 elseif has('mac')
-    set guifont=Monaco:h10
+    set guifont=Monaco:h12
     " set guifont=xos4\ Terminus\ 9 " OSX?
 elseif has('unix')
     " set guifont=Terminus\ 9 " Ubuntu.
