@@ -1,0 +1,22 @@
+Host staging-py
+  HostName 164.138.227.137
+
+Host staging-db
+  HostName 164.138.227.140
+
+Host production-py
+  HostName 164.138.227.138
+
+Host production-db
+  HostName 164.138.227.139
+
+Host vagrant
+  HostName 127.0.0.1
+  Port 8888
+  User vagrant
+
+Host *
+  ForwardAgent yes
+  User csaba
+  ServerAliveInterval 60
+

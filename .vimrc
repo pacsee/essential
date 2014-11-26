@@ -486,19 +486,20 @@ set linebreak
 set nu
 set splitbelow                  " Split windows at bottom
 set splitright
-autocmd BufWritePre *.py :%s/\s\+$//e
-autocmd BufWritePre *.sh :%s/\s\+$//e
-autocmd BufWritePre *.js :%s/\s\+$//e
-autocmd BufWritePre *.json :%s/\s\+$//e
-autocmd BufWritePre *.yml :%s/\s\+$//e
-autocmd BufWritePre *.html :%s/\s\+$//e
-autocmd BufWritePre *.xml :%s/\s\+$//e
-autocmd BufWritePre *.css :%s/\s\+$//e
-autocmd BufWritePre *.php :%s/\s\+$//e
-autocmd BufWritePre *.java :%s/\s\+$//e
-autocmd BufWritePre *.sql :%s/\s\+$//e
-autocmd BufWritePre *.c :%s/\s\+$//e
-autocmd BufWritePre *.cpp :%s/\s\+$//e
+
+"autocmd BufWritePre *.py :%s/\s\+$//e
+"autocmd BufWritePre *.sh :%s/\s\+$//e
+"autocmd BufWritePre *.js :%s/\s\+$//e
+"autocmd BufWritePre *.json :%s/\s\+$//e
+"autocmd BufWritePre *.yml :%s/\s\+$//e
+"autocmd BufWritePre *.html :%s/\s\+$//e
+"autocmd BufWritePre *.xml :%s/\s\+$//e
+"autocmd BufWritePre *.css :%s/\s\+$//e
+"autocmd BufWritePre *.php :%s/\s\+$//e
+"autocmd BufWritePre *.java :%s/\s\+$//e
+"autocmd BufWritePre *.sql :%s/\s\+$//e
+"autocmd BufWritePre *.c :%s/\s\+$//e
+"autocmd BufWritePre *.cpp :%s/\s\+$//e
 
 let g:flake8_max_complexity=5
 let g:flake8_select='W,E'
@@ -514,3 +515,5 @@ imap <ESC>[H <C-O><Home>
 imap <ESC>[F <C-O><End>
 cmap <ESC>[H <Home>
 cmap <ESC>[F <End>
+
+let g:ConqueTerm_ReadUnfocused = 1
