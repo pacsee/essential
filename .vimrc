@@ -515,3 +515,5 @@ imap <ESC>[H <C-O><Home>
 imap <ESC>[F <C-O><End>
 cmap <ESC>[H <Home>
 cmap <ESC>[F <End>
+
+let g:ConqueTerm_ReadUnfocused = 1
