@@ -507,3 +507,6 @@ cmap <ESC>[F <End>
 
 let g:ConqueTerm_ReadUnfocused = 1
 set ff=unix
+nmap ,s :TagbarOpenAutoClose<CR>
+
+
