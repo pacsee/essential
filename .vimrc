@@ -346,18 +346,18 @@ map! <silent> <s-c-tab> <esc><s-c-tab>
 " Windows-like keys for cut/copy/paste
 vnoremap <c-x> "+x
 vnoremap <c-c> "+y
-noremap <c-v> "+gP
-imap <c-v> <esc>"+gpi
-vmap <c-v> "-cx<Esc>\\paste\\"_x
-cnoremap <c-v> <c-r>+
+"noremap <c-v> "+gP
+"imap <c-v> <esc>"+gpi
+"vmap <c-v> "-cx<Esc>\\paste\\"_x
+"cnoremap <c-v> <c-r>+
 
 " save file
 noremap <silent> <c-s> :wa<cr>
 inoremap <silent> <c-s> <ESC>:wa<cr>
 
 " quit file
-noremap <silent> <c-q> :qa<cr>
-inoremap <silent> <c-q> <c-o>:qa<cr>
+" noremap <silent> <c-q> :qa<cr>
+" inoremap <silent> <c-q> <c-o>:qa<cr>
 
 " navigating quickfix
 noremap <silent> <f3> :cnext<cr>
@@ -517,3 +517,4 @@ cmap <ESC>[H <Home>
 cmap <ESC>[F <End>
 
 let g:ConqueTerm_ReadUnfocused = 1
+set ff=unix
