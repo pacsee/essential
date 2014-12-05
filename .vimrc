@@ -40,17 +40,6 @@ set hlsearch
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 inoremap <silent> <c-l> :nohlsearch<cr><c-l>
 
-" Load neobundle
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-call neobundle#rc(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Tagbar'
-
 " search-next wraps back to start of file
 set wrapscan
 
