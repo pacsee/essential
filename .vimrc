@@ -356,8 +356,8 @@ noremap <silent> <c-s> :wa<cr>
 inoremap <silent> <c-s> <ESC>:wa<cr>
 
 " quit file
-" noremap <silent> <c-q> :qa<cr>
-" inoremap <silent> <c-q> <c-o>:qa<cr>
+noremap <silent> <c-q> :qa<cr>
+inoremap <silent> <c-q> <c-o>:qa<cr>
 
 " navigating quickfix
 noremap <silent> <f3> :cnext<cr>
