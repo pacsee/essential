@@ -40,17 +40,6 @@ set hlsearch
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 inoremap <silent> <c-l> :nohlsearch<cr><c-l>
 
-" Load neobundle
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-call neobundle#rc(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Tagbar'
-
 " search-next wraps back to start of file
 set wrapscan
 
@@ -346,10 +335,10 @@ map! <silent> <s-c-tab> <esc><s-c-tab>
 " Windows-like keys for cut/copy/paste
 vnoremap <c-x> "+x
 vnoremap <c-c> "+y
-noremap <c-v> "+gP
-imap <c-v> <esc>"+gpi
-vmap <c-v> "-cx<Esc>\\paste\\"_x
-cnoremap <c-v> <c-r>+
+"noremap <c-v> "+gP
+"imap <c-v> <esc>"+gpi
+"vmap <c-v> "-cx<Esc>\\paste\\"_x
+"cnoremap <c-v> <c-r>+
 
 " save file
 noremap <silent> <c-s> :wa<cr>
@@ -517,3 +506,7 @@ cmap <ESC>[H <Home>
 cmap <ESC>[F <End>
 
 let g:ConqueTerm_ReadUnfocused = 1
+set ff=unix
+nmap ,s :TagbarOpenAutoClose<CR>
+
+
