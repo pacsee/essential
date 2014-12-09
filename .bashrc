@@ -188,11 +188,11 @@ function rm_tags {
     find . -path "./.git" -prune -o -name "tags" -print | xargs rm -f
 }
 function pytags {
-    rm_tags
-    ctags -R --languages=python $*
+    # rm_tags
+    ctags -R --languages=python --python-kinds=-iv $*
 }
 function webtags {
-    ctags -R --extra=+f --links=no
+    ctags -R --extra=+f --links=no --python-kinds=-iv $*
 }
 
 # git stuff
