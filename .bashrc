@@ -285,3 +285,6 @@ export SENCHA_CMD_3_0_0="/home/pcsaba/bin/Sencha/Cmd/5.0.0.160"
 export WORKON_HOME=$HOME/.envs
 export PROJECT_HOME=$HOME/work
 source /usr/local/bin/virtualenvwrapper.sh
+
+export PAGER=less
+# export LESS="-iMSx4 -FX"

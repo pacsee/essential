@@ -1,0 +1,3 @@
+\timing
+\pset pager always
+\setenv LESS '-iMSx4 -FX'
