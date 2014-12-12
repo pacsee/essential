@@ -189,7 +189,7 @@ function rm_tags {
 }
 function pytags {
     # rm_tags
-    ctags -R --languages=python --python-kinds=-iv $*
+    ctags -R --languages=python --extra=+f --links=no --python-kinds=-iv $*
 }
 function webtags {
     ctags -R --extra=+f --links=no --python-kinds=-iv $*
