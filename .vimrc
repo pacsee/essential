@@ -326,11 +326,11 @@ vnoremap <a-6> g^
 nnoremap ; :
 
 " go to prev buffer
-noremap <silent> <c-tab> :hide bp<cr>
-map! <silent> <c-tab> <esc><c-tab>
+" noremap <silent> <c-tab> :hide bp<cr>
+" map! <silent> <c-tab> <esc><c-tab>
 " go to next buffer
-noremap <silent> <s-c-tab> :hide bn<cr>
-map! <silent> <s-c-tab> <esc><s-c-tab>
+" noremap <silent> <s-c-tab> :hide bn<cr>
+" map! <silent> <s-c-tab> <esc><s-c-tab>
 
 " Windows-like keys for cut/copy/paste
 vnoremap <c-x> "+x
@@ -509,4 +509,9 @@ let g:ConqueTerm_ReadUnfocused = 1
 set ff=unix
 nmap ,s :TagbarOpenAutoClose<CR>
 
-
+" Set the tabulars
+nmap <Tab> ><Space>
+nmap <S-Tab> <<Space>
+xmap <Tab> >
+xmap <S-Tab> <
+imap <S-Tab> <C-o><<Space>

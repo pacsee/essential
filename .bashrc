@@ -112,6 +112,7 @@ alias du='du -h'
 alias ls='ls $LS_OPTIONS'
 #alias ll='ls $LS_OPTIONS -lG'
 alias ll='gls -lAFh --color=always'
+alias l='gls -lFh --color=always'
 alias la='gls $LS_OPTIONS -lGa'
 alias mv='mv -i'
 alias rm='rm -i'
@@ -172,7 +173,10 @@ function showhidden() {
     killall Finder
 }
 
-
+function pyclean {
+    find . -type f -name "*.py[co]" -delete
+    find . -type d -name "__pycache__" -delete
+}
 # Change terminal window and tab name
 function tabname {
   printf "\e]1;$1\a"
