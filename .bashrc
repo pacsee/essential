@@ -288,3 +288,5 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 export PAGER=less
 # export LESS="-iMSx4 -FX"
+
+# export ANSIBLE_HOSTS=~/Dropbox/Servers/ansible_hosts
