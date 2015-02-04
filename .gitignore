@@ -1,3 +1,7 @@
 *.py[co]
+__pycache__
 .vim/bundle/.neobundle/
 .vim/.netrwhist
+.emacs.d/SessionDesktop.el
+.emacs.d/_trash/
+.emacs.d/elpa/archives/
