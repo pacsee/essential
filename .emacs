@@ -11,12 +11,16 @@
 ; Default scripts folder
 (add-to-list 'load-path "~/.emacs.d/scripts")
 
+
+(global-linum-mode 1) ; display line numbers in margin.
+(global-show-newlines-mode)
+
 ;; Set column indicator and it's color
 (require 'fill-column-indicator)
 (define-globalized-minor-mode
  global-fci-mode fci-mode (lambda () (fci-mode 1)))
 (global-fci-mode t)
-(setq fci-rule-column 80)
+(setq fci-rule-column 79)
 (setq fci-rule-color "red")
 
 
@@ -48,3 +52,5 @@
 
 ; Switching windows better
 (require 'ibs)
+
+(global-set-key "\M-," 'codesearch-search)
