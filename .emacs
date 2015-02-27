@@ -7,6 +7,8 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
+(color-theme-initialize)
+(color-theme-dark-blue2)
 
 ; Default scripts folder
 (add-to-list 'load-path "~/.emacs.d/scripts")
@@ -22,7 +24,7 @@
 (global-fci-mode t)
 (setq fci-rule-column 79)
 (setq fci-rule-color "red")
-
+(tool-bar-mode 0)
 
 ;; python-mode
 (setq py-install-directory "~/.emacs.d/python-mode.el-6.2.0")
