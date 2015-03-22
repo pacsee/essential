@@ -199,6 +199,18 @@ function webtags {
     ctags -R --extra=+f --links=no --python-kinds=-iv $*
 }
 
+function mkproject3 {
+    mkproject --python=/usr/local/bin/python3 $*
+}
+
+function mkvirtualenv3 {
+    mkvirtualenv --python=/usr/local/bin/python3 $*
+}
+
+function virtualenv3 {
+    virtualenv --python=/usr/local/bin/python3 $*
+}
+
 # git stuff
 function glog {
     git log --graph --all --format=format:"%x09%C(yellow)%h%C(reset) %C(green)%ai%x08%x08%x08%x08%x08%x08%C(reset) %C(bold white)%cn%C(reset)%C(auto)%d%C(reset)%n%x09%C(white)%s%C(reset)" --abbrev-commit "$@"
