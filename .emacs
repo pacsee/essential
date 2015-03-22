@@ -7,18 +7,24 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
+(color-theme-initialize)
+(color-theme-dark-blue2)
 
 ; Default scripts folder
 (add-to-list 'load-path "~/.emacs.d/scripts")
+
+
+(global-linum-mode 1) ; display line numbers in margin.
+(global-show-newlines-mode)
 
 ;; Set column indicator and it's color
 (require 'fill-column-indicator)
 (define-globalized-minor-mode
  global-fci-mode fci-mode (lambda () (fci-mode 1)))
 (global-fci-mode t)
-(setq fci-rule-column 80)
+(setq fci-rule-column 79)
 (setq fci-rule-color "red")
-
+(tool-bar-mode 0)
 
 ;; python-mode
 (setq py-install-directory "~/.emacs.d/python-mode.el-6.2.0")
@@ -48,3 +54,5 @@
 
 ; Switching windows better
 (require 'ibs)
+
+(global-set-key "\M-," 'codesearch-search)
