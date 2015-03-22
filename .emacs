@@ -7,9 +7,6 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
-(color-theme-initialize)
-(color-theme-dark-blue2)
-
 ; Default scripts folder
 (add-to-list 'load-path "~/.emacs.d/scripts")
 
