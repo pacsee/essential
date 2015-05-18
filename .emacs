@@ -53,3 +53,5 @@
 (require 'ibs)
 
 (global-set-key "\M-," 'codesearch-search)
+
+(load-theme 'solarized-dark t)

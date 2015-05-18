@@ -507,7 +507,8 @@ cmap <ESC>[F <End>
 
 let g:ConqueTerm_ReadUnfocused = 1
 set ff=unix
-nmap ,s :TagbarOpenAutoClose<CR>
+nmap ,l :TagbarOpenAutoClose<CR>
+nmap ,8 :call Flake8()<CR>
 
 " Set the tabulars
 nmap <Tab> ><Space>
