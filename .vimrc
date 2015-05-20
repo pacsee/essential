@@ -187,7 +187,7 @@ command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
 
 " toggle the highlighting of long lines
 
-let s:highlight_long_lines = 0
+let s:highlight_long_lines = 1
 
 function! ToggleHighlightLongLines()
     if s:highlight_long_lines == 0
@@ -198,6 +198,7 @@ function! ToggleHighlightLongLines()
         let s:highlight_long_lines = 0
     endif
 endfunction
+HighlightLongLines
 
 noremap <leader>l :call ToggleHighlightLongLines()<cr>
 
@@ -470,7 +471,7 @@ au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl SetGLSLFileType
 " When vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
-set colorcolumn=80
+set colorcolumn=79
 set linebreak
 set nu
 set splitbelow                  " Split windows at bottom
@@ -508,7 +509,7 @@ cmap <ESC>[F <End>
 let g:ConqueTerm_ReadUnfocused = 1
 set ff=unix
 nmap ,l :TagbarOpenAutoClose<CR>
-nmap ,8 :call Flake8()<CR>
+map <buffer> ,7 :call Flake8()<CR>
 
 " Set the tabulars
 nmap <Tab> ><Space>
@@ -516,3 +517,5 @@ nmap <S-Tab> <<Space>
 xmap <Tab> >
 xmap <S-Tab> <
 imap <S-Tab> <C-o><<Space>
+
+" set nolist!
