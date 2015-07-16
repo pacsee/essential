@@ -211,6 +211,14 @@ function virtualenv3 {
     virtualenv --python=/usr/local/bin/python3 $*
 }
 
+function vbox-list {
+    VBoxManage list vms
+}
+
+function vbox-running {
+    VBoxManage list runningvms
+}
+
 # git stuff
 function glog {
     git log --graph --all --format=format:"%x09%C(yellow)%h%C(reset) %C(green)%ai%x08%x08%x08%x08%x08%x08%C(reset) %C(bold white)%cn%C(reset)%C(auto)%d%C(reset)%n%x09%C(white)%s%C(reset)" --abbrev-commit "$@"
