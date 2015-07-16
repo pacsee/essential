@@ -127,7 +127,7 @@ echo
 
 # recursive search in files
 function grp {
-    GREP_OPTIONS="-rI --color --exclude-dir=\.bzr --exclude-dir=\.git --exclude-dir=\.hg --exclude-dir=\.svn --exclude=tags $GREP_OPTIONS" grep "$@"
+    GREP_OPTIONS="-rIn --color --exclude-dir=\.bzr --exclude-dir=\.git --exclude-dir=\.hg --exclude-dir=\.svn --exclude=tags $GREP_OPTIONS" grep "$@"
 }
 
 # recursive search in Python source
@@ -306,3 +306,7 @@ export PAGER=less
 # export LESS="-iMSx4 -FX"
 
 # export ANSIBLE_HOSTS=~/Dropbox/Servers/ansible_hosts
+
+if [ -a "~/.bashrc_local" ]; then
+    . ~/.bashrc_local
+fi
