@@ -2,6 +2,13 @@
   tasks:
     - name: install docker machine
       get_url:
+        force=yes
         url=https://github.com/docker/machine/releases/download/v0.3.0/docker-machine_darwin-amd64
         dest=/usr/local/bin/docker-machine
+        mode=a+x
+    - name: install docker compose
+      get_url:
+        force=yes
+        url=https://github.com/docker/compose/releases/download/1.3.3/docker-compose-Darwin-x86_64
+        dest=/usr/local/bin/docker-compose
         mode=a+x
