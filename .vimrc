@@ -536,5 +536,5 @@ noremap <F7> :call Flake8()<cr>
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=15 ctermbg=1 guifg=White guibg=Red
 highlight clear MatchParen
-highlight MatchParen term=standout ctermfg=15 ctermbg=1 guifg=Yellow
+highlight MatchParen term=standout ctermfg=Red
 set nolist!
