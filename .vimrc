@@ -496,7 +496,7 @@ set splitright
 "autocmd BufWritePre *.cpp :%s/\s\+$//e
 
 let g:flake8_max_complexity=5
-let g:flake8_select='W,E'
+let g:flake8_select='W,E,F'
 
 set tags=tags,../tags,../../tags,../../../tags
 
@@ -526,5 +526,10 @@ let g:NERDTreeMapPreview="<CR>"
 let g:NERDTreeMapPreviewVSplit="<TAB>"
 let g:NERDTreeMapPreviewSplit="<S-TAB>"
 
+vmap <F6> :call PythonCommentSelection()<cr>
+vmap <S-F6> :call PythonUncommentSelection()<cr>
+map <F6> :call PythonCommentSelection()<cr>
+map <S-F6> :call PythonUncommentSelection()<cr>
+noremap <F7> :call Flake8()<cr>
 
 set nolist!

@@ -95,16 +95,16 @@ function! RunCurrentPythonFile(external)
     call RunPythonFile("%", a:external)
 endfunction
 
-nnoremap <silent> <f5> :call RunCurrentPythonFile(0)<cr>
-nnoremap <silent> <s-f5> :call RunCurrentPythonFile(1)<cr>
+" nnoremap <silent> <f5> :call RunCurrentPythonFile(0)<cr>
+" nnoremap <silent> <s-f5> :call RunCurrentPythonFile(1)<cr>
 
 "-------------------------------------------------------------------------
 " Run the unittests of the file in the current buffer
-nnoremap <silent> <f6> :python run_python_tests(external=0)<cr>
-nnoremap <silent> <s-f6> :python run_python_tests(external=1)<cr>
+" nnoremap <silent> <f6> :python run_python_tests(external=0)<cr>
+" nnoremap <silent> <s-f6> :python run_python_tests(external=1)<cr>
 
 "-------------------------------------------------------------------------
 " Run the single test method under the text cursor
-nnoremap <silent> <f7> :python run_single_test_method(external=0)<cr>
-nnoremap <silent> <s-f7> :python run_single_test_method(external=1)<cr>
+" nnoremap <silent> <f7> :python run_single_test_method(external=0)<cr>
+" nnoremap <silent> <s-f7> :python run_single_test_method(external=1)<cr>
 
