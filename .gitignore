@@ -5,3 +5,4 @@ __pycache__
 .emacs.d/SessionDesktop.el
 .emacs.d/_trash/
 .emacs.d/elpa/archives/
+_local

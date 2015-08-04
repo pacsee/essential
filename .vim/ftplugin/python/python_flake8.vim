@@ -62,7 +62,7 @@ if !exists("*Flake8()")
             let s:flake8_max_line_length=""
         endif
 
-        if exists("g:flake8_max_complexity")
+        if exists("g:flake8_max_complexity-nouse")
             let s:flake8_max_complexity=" --max-complexity=".g:flake8_max_complexity
         else
             let s:flake8_max_complexity=""
@@ -73,13 +73,14 @@ if !exists("*Flake8()")
         else
             let s:flake8_quickfix_location="belowright"
         endif
+        let s:flake8_extra=" --select=E,W --ignore="
 
         " set shellpipe to > instead of tee (suppressing output)
         set shellpipe=>
 
         " perform the grep itself
         let &grepformat="%f:%l:%c: %m\,%f:%l: %m"
-        let &grepprg=s:flake8_cmd.s:flake8_builtins_opt.s:flake8_ignores.s:flake8_max_line_length.s:flake8_max_complexity
+        let &grepprg=s:flake8_cmd.s:flake8_builtins_opt.s:flake8_ignores.s:flake8_max_line_length.s:flake8_max_complexity.s:flake8_extra
         silent! grep! "%"
 
         " restore grep settings

@@ -341,6 +341,10 @@ vnoremap <c-c> "+y
 "vmap <c-v> "-cx<Esc>\\paste\\"_x
 "cnoremap <c-v> <c-r>+
 
+" Open NERD Tree file
+noremap <silent> <F2> :NERDTreeToggle<cr>
+inoremap <silent> <F2> <ESC>:NERDTreeToggle<cr>
+
 " save file
 noremap <silent> <c-s> :wa<cr>
 inoremap <silent> <c-s> <ESC>:wa<cr>
