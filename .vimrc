@@ -522,7 +522,9 @@ xmap <Tab> >
 xmap <S-Tab> <
 imap <S-Tab> <C-o><<Space>
 
-let g:NERDTreeMapPreview="<cr>"
+let g:NERDTreeMapPreview="<CR>"
+let g:NERDTreeMapPreviewVSplit="<TAB>"
+let g:NERDTreeMapPreviewSplit="<S-TAB>"
 
 
 set nolist!
