@@ -501,7 +501,7 @@ let g:flake8_select='W,E,F'
 set tags=tags,../tags,../../tags,../../../tags
 
 " let g:NERDTreeWinSize=60
-" let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 
 map <ESC>[H <Home>
 map <ESC>[F <End>
@@ -532,4 +532,9 @@ map <F6> :call PythonCommentSelection()<cr>
 map <S-F6> :call PythonUncommentSelection()<cr>
 noremap <F7> :call Flake8()<cr>
 
+
+highlight clear SpellBad
+highlight SpellBad term=standout ctermfg=15 ctermbg=1 guifg=White guibg=Red
+highlight clear MatchParen
+highlight MatchParen term=standout ctermfg=15 ctermbg=1 guifg=Red
 set nolist!
