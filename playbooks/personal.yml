@@ -12,3 +12,11 @@
         url=https://github.com/docker/compose/releases/download/1.3.3/docker-compose-Darwin-x86_64
         dest=/usr/local/bin/docker-compose
         mode=a+x
+    - name: Install watch
+      homebrew: name=watch state=present
+    - name: Install python2
+      homebrew: name=python state=present
+    - name: Install python3
+      homebrew: name=python3 state=present
+    - name: Install VIM
+      homebrew: name=vim state=present
