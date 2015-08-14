@@ -472,7 +472,7 @@ au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl SetGLSLFileType
 " When vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
-set colorcolumn=79
+set colorcolumn=80
 set linebreak
 set nu
 set splitbelow                  " Split windows at bottom
