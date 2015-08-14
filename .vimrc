@@ -135,9 +135,6 @@ inoremap # X<backspace>#
 " display and colors
 set background=dark
 
-" toggle dark/light background
-call togglebg#map("<F9>")
-
 " lastline: don't display truncated last lines as '@' chars
 " uhex: show unprintable chars as hex <xx> instead of ^C and ~C.
 set display+=lastline
