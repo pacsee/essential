@@ -536,13 +536,16 @@ highlight clear MatchParen
 highlight MatchParen term=standout ctermfg=Red
 set nolist!
 
+function! LoadLocal()
+    if !empty(glob("../../.vimrc_local"))
+        so ../../.vimrc_local
+    endif
+    if !empty(glob("../.vimrc_local"))
+        so ../.vimrc_local
+    endif
+    if !empty(glob(".vimrc_local"))
+        so .vimrc_local
+    endif
+endfunction
 
-if !empty(glob("../../.vimrc_local"))
-    so ../../.vimrc_local
-endif
-if !empty(glob("../.vimrc_local"))
-    so ../.vimrc_local
-endif
-if !empty(glob(".vimrc_local"))
-    so .vimrc_local
-endif
+call LoadLocal()
