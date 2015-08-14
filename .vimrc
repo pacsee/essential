@@ -538,3 +538,14 @@ highlight SpellBad term=standout ctermfg=15 ctermbg=1 guifg=White guibg=Red
 highlight clear MatchParen
 highlight MatchParen term=standout ctermfg=Red
 set nolist!
+
+
+if !empty(glob("../../.vimrc_local"))
+    so ../../.vimrc_local
+endif
+if !empty(glob("../.vimrc_local"))
+    so ../.vimrc_local
+endif
+if !empty(glob(".vimrc_local"))
+    so .vimrc_local
+endif
