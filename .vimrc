@@ -548,4 +548,34 @@ function! LoadLocal()
     endif
 endfunction
 
+" let g:myStatusLine="%f %#lCursor#%M%* %#question#%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}%*%#directory#%{&ff!='unix'?'['.&ff.']':''}%*%#warningmsg#%{StatuslineTabWarning()}%*%r%*%=%{strlen(&ft)?&ft:'none'} %3b,0x%02B %2c,%l/%L"
+
+" Spell Check
+let b:myLang=0
+
+let g:myLangList=["nospell","en","en_us","en_gb"]
+function! ToggleSpell()
+  if !exists( "b:myLang" )
+    if &spell
+      let b:myLang=index(g:myLangList, &spelllang)
+    else
+      let b:myLang=0
+    endif
+  endif
+  let b:myLang=b:myLang+1
+  if b:myLang>=len(g:myLangList) | let b:myLang=0 | endif
+  if b:myLang==0
+    setlocal nospell
+  else
+    execute "setlocal spell spelllang=".get(g:myLangList, b:myLang)
+  endif
+  echo "spell checking language:" g:myLangList[b:myLang]
+endfunction
+
+
+nmap <silent> <S-F7> :call ToggleSpell()<CR>
+set statusline+=[%{&spell?&spelllang:'nospell'}]
+
+
+
 call LoadLocal()
