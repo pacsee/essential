@@ -1,0 +1,20 @@
+- hosts: local
+  vars:
+    brew_install:
+       - watch
+       - docker
+       - docker-machine
+       - docker-compose
+       - python
+       - python3
+       - vim
+       - protobuf241
+       - postgres-client
+       - mc
+  tasks:
+    - name: Install packages with homebrew
+      homebrew: name={{ item }} update_homebrew=yes
+      with_items: "{{ brew_install }}"
+    - name: link homebrew packages
+      shell: brew link --overwrite {{ item }}
+      with_items: "{{ brew_install }}"
