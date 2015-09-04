@@ -9,29 +9,8 @@ test -z "$PROFILEREAD" && . /etc/profile || true
 
 # Prefix to PATH ###############################
 
-if [ -d "$HOME/Sencha/Cmd/5.0.0.160" ] ; then
-    PATH="$HOME/Sencha/Cmd/5.0.0.160:$PATH"
-fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
-fi
-# for BATS, ~/bin already used
-if [ -d "$HOME/mybin" ] ; then
-    PATH="$HOME/mybin:$PATH"
-fi
-if [ -d "$HOME/docs/bin" ] ; then
-    PATH="$HOME/docs/bin:$PATH"
-fi
-if [ -d "$HOME/docs/bin/linux" ] ; then
-    PATH="$HOME/docs/bin/linux:$PATH"
-fi
-if [ $OSTYPE = cygwin ] ; then
-    if [ -d ~/bin/cygwin ] ; then
-        PATH=~/bin/cygwin:"${PATH}"
-    fi
-    if [ -d ~/docs/bin/cygwin ] ; then
-        PATH=~/docs/bin/cygwin:"${PATH}"
-    fi
 fi
 
 if [ $OSTYPE = darwin* ] ; then
@@ -42,10 +21,6 @@ if [ $OSTYPE = darwin* ] ; then
     # utils from homebrew
     PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
     MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
-
-    # PATH for installed pythons
-    PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-    PATH="/Library/Frameworks/Python.framework/Versions/3.3/bin:${PATH}"
 fi
 
 export PATH
@@ -53,12 +28,7 @@ export MANPATH
 
 # Other env variables ######################
 
-if [ $OSTYPE = cygwin ] ; then
-    export PYTHONSTARTUP=$HOME\\.pythonstartup.py
-else
-    # native Linux shell
-    export PYTHONSTARTUP=$HOME/.pythonstartup.py
-fi
+export PYTHONSTARTUP=$HOME/.pythonstartup.py
 
 # These completion tuning parameters change the default behavior of
 # bash_completion:
@@ -68,7 +38,7 @@ COMP_CONFIGURE_HINTS=1
 # Define to avoid flattening internal contents of tar files
 COMP_TAR_INTERNAL_PATHS=1
 
- 
+
 CPPFLAGS="-I/usr/local/include"
 export CPPFLAGS
 
@@ -104,15 +74,12 @@ _complete_ssh_hosts ()
 }
 complete -F _complete_ssh_hosts ssh
 
-export PATH=/home/pcsaba/bin/Sencha/Cmd/5.0.0.160:$PATH
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 
-export SENCHA_CMD_3_0_0="/home/pcsaba/bin/Sencha/Cmd/5.0.0.160"
-
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/csaba/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+eval $(docker-machine env default)
+if [  "$DOCKER_HOST" != "" ]; then
+    export PGHOST=$(echo | awk -v d="$DOCKER_HOST" '{print substr(d,7,length(d)-11) }')
+fi
 
 if [ -a "$HOME/.profile_local" ]; then
     . $HOME/.profile_local

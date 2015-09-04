@@ -4,9 +4,6 @@
 #----------------------------------------
 # environment vars related to interactive command-line use
 
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
-
 # PS1
 case $- in
 
@@ -119,12 +116,6 @@ alias rm='rm -i'
 alias less='less -R' # display raw control characters for colors only
 alias histread='history -c; history -r'
 
-gitl () 
-{ 
-git log --graph --color --all --format=format:"%x09%C(bold blue)%h%C(reset) %C(bold green)%ai%x08%x08%x08%x08%x08%x08%C(reset) %C(bold white)%cn%C(reset)%C(bold yellow)%d%C(reset)%n%x09%C(white)%s%C(reset)" --abbrev-commit "$@";
-echo
-}
-
 # recursive search in files
 function grp {
     GREP_OPTIONS="-rIn --color --exclude-dir=\.bzr --exclude-dir=\.git --exclude-dir=\.hg --exclude-dir=\.svn --exclude=tags $GREP_OPTIONS" grep "$@"
@@ -186,21 +177,13 @@ function winname {
   printf "\e]2;$1\a"
 }
 
-
-function rm_tags {
-    # remove all tags files in dirs under . but skip .git subdirs
-    find . -path "./.git" -prune -o -name "tags" -print | xargs rm -f
-}
 function pytags {
     # rm_tags
     ctags -R --languages=python --extra=+f --links=no --python-kinds=-iv $*
 }
+
 function webtags {
     ctags -R --extra=+f --links=no --python-kinds=-iv $*
-}
-
-function mkproject3 {
-    mkproject --python=/usr/local/bin/python3 $*
 }
 
 function mkvirtualenv3 {
@@ -298,12 +281,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export PATH=/opt/local/bin:/opt/local/sbin:~/Bin:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
-
-#export PATH=/home/pcsaba/bin/Sencha/Cmd/5.0.0.160:$PATH
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
-export SENCHA_CMD_3_0_0="/home/pcsaba/bin/Sencha/Cmd/5.0.0.160"
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
 export WORKON_HOME=$HOME/.envs

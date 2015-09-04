@@ -9,7 +9,7 @@
        - python3
        - vim
        - protobuf241
-       - postgres-client
+       - postgresql
        - mc
   tasks:
     - name: Install packages with homebrew

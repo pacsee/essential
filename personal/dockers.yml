@@ -1,0 +1,12 @@
+- hosts: local
+  tasks:
+  - name: Ensure database docker
+    docker:
+      name: database
+      image: postgres
+      state: started
+      use_tls: "encrypt"
+      ports:
+      - "0.0.0.0:5432:5432"
+      env:
+        POSTGRES_USER: "csaba"
