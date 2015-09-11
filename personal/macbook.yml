@@ -12,6 +12,7 @@
        - postgresql
        - mc
        - npm
+       - pv
   tasks:
     - name: Install packages with homebrew
       homebrew: name={{ item }} update_homebrew=yes
