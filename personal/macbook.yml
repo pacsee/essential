@@ -20,3 +20,9 @@
     - name: link homebrew packages
       shell: brew link --overwrite {{ item }}
       with_items: "{{ brew_install }}"
+    - name: install IPython
+      sudo: yes
+      shell: pip install -U ipython[all]
+    - name: install IPython3
+      sudo: yes
+      shell: pip3 install -U ipython[all]
