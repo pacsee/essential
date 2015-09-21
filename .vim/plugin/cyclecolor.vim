@@ -119,7 +119,4 @@ command! CycleColorNext :call s:CycleColor(1)
 command! CycleColorPrev :call s:CycleColor(-1)
 command! CycleColorRefresh :call s:CycleColorRefresh()
 
-nnoremap <f8> :CycleColorNext<cr>
-nnoremap <s-f8> :CycleColorPrev<cr>
-
 " vi:set ai ts=4 sw=4 tw=0:

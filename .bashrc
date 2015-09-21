@@ -20,7 +20,7 @@ case $- in
   _HOST="$_DIM_CYAN\h$_RESET"
   _PWD="$_DIM_CYAN\w$_RESET"
   _PROMPT="$_BRIGHT_CYAN\$$_RESET"
-  _DATE="$_DIM_CYAN\$(date '+%H:%M:%S')$_RESET"
+  _DATE="\e[1;37m\$(date '+%H:%M:%S')$_RESET"
 
   . ~/.ps1_vcs
 
@@ -32,7 +32,7 @@ case $- in
     fi
   "
 
-  export PS1="$_USER@$_HOST{$_DATE}:$_PWD \$(${dvcs_function})\n\$(${running_jobs})$_PROMPT "
+  export PS1="$_USER@$_HOST:$_PWD\$(${dvcs_function})\n\$(${running_jobs})\! $_DATE $_PROMPT "
   unset _PRE _POST _DIM_CYAN _BRIGHT_CYAN _RESET _USER _HOST _PWD _PROMPT
 
   # Whenever displaying the prompt, append history to disk
