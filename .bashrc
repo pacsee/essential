@@ -32,7 +32,7 @@ case $- in
     fi
   "
 
-  export PS1="$_USER@$_HOST:$_PWD\$(${dvcs_function})\n\$(${running_jobs})\! $_DATE $_PROMPT "
+  export PS1="$_USER@$_HOST:$_PWD\$(${dvcs_function}) [$_DATE]\n\$(${running_jobs}) $_PROMPT "
   unset _PRE _POST _DIM_CYAN _BRIGHT_CYAN _RESET _USER _HOST _PWD _PROMPT
 
   # Whenever displaying the prompt, append history to disk
