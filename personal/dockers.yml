@@ -1,6 +1,7 @@
 - hosts: local
   tasks:
   - name: Ensure database docker
+    tags: postgres
     docker:
       name: database
       image: postgres
@@ -10,3 +11,18 @@
       - "0.0.0.0:5432:5432"
       env:
         POSTGRES_USER: "csaba"
+
+  - name: Consul local
+    tags: consul
+    docker:
+      name: consul
+      image: progrium/consul
+      use_tls: "encrypt"
+      state: started
+      hostname: node1
+      ports:
+       - "0.0.0.0:8400:8400"
+       - "0.0.0.0:8500:8500"
+       - "0.0.0.0:53:53/udp"
+      command: "-server -bootstrap -ui-dir /ui"
+
