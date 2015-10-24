@@ -13,6 +13,8 @@
        - mc
        - npm
        - pv
+       - graphviz
+       - plantuml
   tasks:
     - name: Install packages with homebrew
       homebrew: name={{ item }} update_homebrew=yes
