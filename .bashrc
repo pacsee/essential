@@ -215,6 +215,11 @@ function gtags {
     # list tags at current commit
     git log -n1 --pretty=format:%C\(auto\)%d | sed 's/, /\n/g' | grep tag | sed 's/tag: \|)//g'
 }
+function gsg {
+    GREP=$1
+    shift
+    git show $@ $(git log --grep $GREP | grep "commit" | cut -d" " -f 2)
+}
 
 . ~/.git-completion.bash
 
