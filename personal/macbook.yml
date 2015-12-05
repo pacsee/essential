@@ -15,6 +15,9 @@
        - pv
        - graphviz
        - plantuml
+       - mercurial
+       - tree
+       - ghc
   tasks:
     - name: Install packages with homebrew
       homebrew: name={{ item }} update_homebrew=yes
