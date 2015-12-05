@@ -1,6 +1,7 @@
 - hosts: local
   vars:
     brew_install:
+       - colordiff
        - watch
        - docker
        - docker-machine
@@ -19,6 +20,7 @@
        - plantuml
        - mercurial
        - tree
+       - ghostscript
     pip_common_install:
        - ipython[all]
        - psycopg2

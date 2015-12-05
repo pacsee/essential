@@ -3,10 +3,6 @@
 # environment vars, process limits
 # i.e. stuff inherited by child processes
 
-# BATS stuff ###################################
-test -z "$PROFILEREAD" && . /etc/profile || true
-
-
 # Prefix to PATH ###############################
 
 if [ -d "$HOME/bin" ] ; then
@@ -28,7 +24,6 @@ export MANPATH
 
 # Other env variables ######################
 
-export PYTHONSTARTUP=$HOME/.pythonstartup.py
 
 # These completion tuning parameters change the default behavior of
 # bash_completion:
@@ -50,35 +45,6 @@ if [[ "$OSTYPE" == darwin* ]] ; then
           source "$HOME/.bashrc"
       fi
   fi
-fi
-
-# run .bashrc if we're in an interactive shell, e.g. in tmux
-case $- in *i*) . ~/.bashrc;; esac
-
-_complete_ssh_hosts ()
-{
-        COMPREPLY=()
-        cur="${COMP_WORDS[COMP_CWORD]}"
-        comp_ssh_hosts=`cat ~/.ssh/known_hosts | \
-                        cut -f 1 -d ' ' | \
-                        sed -e s/,.*//g | \
-                        grep -v ^# | \
-                        uniq | \
-                        grep -v "\[" ;
-                cat ~/.ssh/config | \
-                        grep "^Host " | \
-                        awk '{print $2}'
-                `
-        COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur))
-        return 0
-}
-complete -F _complete_ssh_hosts ssh
-
-export MANPATH=/opt/local/share/man:$MANPATH
-
-eval $(docker-machine env default)
-if [  "$DOCKER_HOST" != "" ]; then
-    export PGHOST=$(echo | awk -v d="$DOCKER_HOST" '{print substr(d,7,length(d)-11) }')
 fi
 
 if [ -a "$HOME/.profile_local" ]; then
