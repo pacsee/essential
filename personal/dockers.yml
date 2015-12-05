@@ -12,6 +12,14 @@
       env:
         POSTGRES_USER: "csaba"
 
+  - name: Create openerp user
+    tags: postgres
+    postgresql_user:
+      name: openerp
+      password: openerp
+      state: present
+      role_attr_flags: SUPERUSER
+
   - name: Consul local
     tags: consul
     docker:

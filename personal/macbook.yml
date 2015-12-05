@@ -13,11 +13,15 @@
        - mc
        - npm
        - pv
+       - leiningen
+       - ghc
        - graphviz
        - plantuml
        - mercurial
        - tree
-       - ghc
+    pip_common_install:
+       - ipython[all]
+       - psycopg2
   tasks:
     - name: Install packages with homebrew
       homebrew: name={{ item }} update_homebrew=yes
@@ -25,9 +29,12 @@
     - name: link homebrew packages
       shell: brew link --overwrite {{ item }}
       with_items: "{{ brew_install }}"
-    - name: install IPython
+
+    - name: install python2 packages
       sudo: yes
-      shell: pip install -U ipython[all]
-    - name: install IPython3
+      shell: pip install -U {{ item }}
+      with_items: "{{ pip_common_install }}"
+    - name: install python3 packages
       sudo: yes
-      shell: pip3 install -U ipython[all]
+      shell: pip3 install -U {{ item }}
+      with_items: "{{ pip_common_install }}"
