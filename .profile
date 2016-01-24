@@ -9,6 +9,10 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+if [ -d "$HOME/opt/config/bin" ] ; then
+    PATH="$HOME/opt/config/bin:$PATH"
+fi
+
 if [ $OSTYPE = darwin* ] ; then
     # this already in PATH, but we want it before /usr/bin so things like
     # brew can override builtin binaries
@@ -50,3 +54,6 @@ fi
 if [ -a "$HOME/.profile_local" ]; then
     . $HOME/.profile_local
 fi
+
+# added by Miniconda3 3.19.0 installer
+export PATH="$PATH:/Users/csaba/opt/miniconda3/bin"

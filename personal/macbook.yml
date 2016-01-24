@@ -21,6 +21,7 @@
        - mercurial
        - tree
        - ghostscript
+       - ack
     pip_common_install:
        - ipython[all]
        - psycopg2
