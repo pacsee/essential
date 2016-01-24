@@ -115,7 +115,7 @@ class Vault(dict):
         vault['data'] = data['data']
         vault['keys'] = data['keys']
         key_str = user.decrypt(base64.b64decode(vault['keys'][user.user_id]))
-        vault.key = RSA.importKey(key_str)
+        vault.key = RSA.importKey(key_str.data)
         return vault
 
     def add_user(self, user, private=False):
@@ -127,7 +127,7 @@ class Vault(dict):
         self['keys'][user.user_id] = base64.b64encode(user.encrypt(key))
 
     def update(self, key, value):
-        self['data'][key] = base64.b64encode(self.key.encrypt(value, None)[0])
+        self['data'][key] = base64.b64encode(self.key.publickey().encrypt(value, None)[0])
 
     def values(self):
         decrypted = {}
@@ -158,7 +158,6 @@ class User(object):
         return self.key_ring.gpg.encrypt(data, self.user_id, armor=False).data
 
     def decrypt(self, data):
-        print(self.key_ring.gpg.list_keys(True))
         return self.key_ring.gpg.decrypt(data)
 
 
