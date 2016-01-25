@@ -4,7 +4,6 @@ import os
 import sys
 
 import yaml
-import argcomplete
 
 # Add the current dir to sys path
 sys.path.append(os.path.dirname(__file__))
@@ -102,6 +101,8 @@ class ActivateCommand(Command):
         instruction = {
             'workdir': WorkDirGenerator,
             'conda': CondaGenerator,
+            'source': SourceGenerator,
+            'workon': WorkonGenerator,
             'bash': BashGenerator,
             'docker-machine': DockerMachineGenerator,
             'env': EnvGenerator,
@@ -142,6 +143,18 @@ class CondaGenerator(Generator):
 
     def handle(self):
         self.writeln('source activate %s' % self.param)
+
+
+class SourceGenerator(Generator):
+
+    def handle(self):
+        self.writeln('source %s' % self.param)
+
+
+class WorkonGenerator(Generator):
+
+    def handle(self):
+        self.writeln('workon %s' % self.param)
 
 
 class BashGenerator(Generator):
@@ -225,7 +238,6 @@ def get_args(prog, argv):
     ActivateCommand.get_parser(subparser, 'activate', help='Activate a workspace')
     InitCommand.get_parser(subparser, 'init', help='initialize')
     LSCommand.get_parser(subparser, 'ls', help='list workspaces')
-    argcomplete.autocomplete(parser)
     return parser.parse_args(argv)
 
 
