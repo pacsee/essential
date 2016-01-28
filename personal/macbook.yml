@@ -22,7 +22,8 @@
        - tree
        - ghostscript
        - ack
-    pip_common_install:
+       - the_silver_searcher
+  pip_common_install:
        - ipython[all]
        - psycopg2
   tasks:
