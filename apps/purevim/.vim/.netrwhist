@@ -1,5 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/csaba/work/sportrm/sportmin-py/applications'
-let g:netrw_dirhist_2='/Users/csaba/work/sportrm/sportmin-py/applications/access'
-let g:netrw_dirhist_3='/Users/csaba/work/sportrm/sportrm-core/core/sportrm/core/auth'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/Users/csaba/work/sportrm/sportrm-core/core/sportrm/infrastructure'
+let g:netrw_dirhist_2='/Users/csaba/work/sportrm/sportrm-core/core/sportrm/infrastructure/database'
