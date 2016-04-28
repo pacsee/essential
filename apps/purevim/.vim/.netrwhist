@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/csaba/work/made.com/erp/erp_core/apps_made'
-let g:netrw_dirhist_2='/Users/csaba/work/made.com/erp/erp_core/apps_made/warehouse_messages'
-let g:netrw_dirhist_3='/Users/csaba/work/made.com/erp/erp_core/apps_made/warehouse_messages/tests'
-let g:netrw_dirhist_4='/Users/csaba/work/made.com/erp/erp_core/apps_made/warehouse_messages'
-let g:netrw_dirhist_5='/Users/csaba/work/made.com/erp/erp_core/apps_made/warehouse_messages/tests'
-let g:netrw_dirhist_6='/Users/csaba/work/made.com/erp/erp_core/apps_made/warehouse_messages'

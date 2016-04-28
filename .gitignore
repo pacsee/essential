@@ -6,3 +6,4 @@ __pycache__
 .emacs.d/_trash/
 .emacs.d/elpa/archives/
 _local
+apps/purevim/.vim/.netrwhist
