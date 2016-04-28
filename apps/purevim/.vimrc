@@ -50,6 +50,16 @@ set wildignore=*.pyc,*.pyo
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+set backupdir=~/.vim-tmp//
+set directory=~/.vim-tmp//
+set backupskip=/tmp/*,/private/tmp/*"
+set backup
+" persist undo info, so you can undo even after closing and re-opening a file
+if version >= 730
+    set undofile
+    set undodir=~/.vim/tmp//
+endif
+
 " use 'comma' prefix for user-defined multi-stroke keyboard mappings
 let mapleader = ","
 
@@ -250,6 +260,16 @@ nnoremap <a-0> g^
 nnoremap <a-6> g^
 vnoremap <a-6> g^
 
+map <C-A> <Home>
+map <C-E> <End>
+imap <C-A> <Home>
+imap <C-E> <End>
+vmap <C-A> 0
+vmap <C-E> $
+cmap <C-A> <Home>
+cmap <C-E> <End>
+map <C-F> w
+
 " save file
 noremap <silent> <c-s> :wa<cr>
 inoremap <silent> <c-s> <ESC>:wa<cr>
@@ -278,6 +298,8 @@ vnoremap <right> l
 vnoremap <up> k
 vnoremap <down> j
 
+
+nmap <CR> O<Esc>j
 " show vim in window title
 set title
 
