@@ -17,4 +17,7 @@ if [  "$DOCKER_HOST" != "" ]; then
     export PGHOST=$(echo | awk -v d="$DOCKER_HOST" '{print substr(d,7,length(d)-11) }')
 fi
 
-
+function docker-cleanup {
+    docker rmi $(docker images -q -f dangling=true)
+    docker volume rm $(docker volume ls -qf dangling=true)
+}
