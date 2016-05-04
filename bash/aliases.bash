@@ -23,5 +23,3 @@ else
     alias gls='gls --group-directories-first -G'
 fi
 
-
-

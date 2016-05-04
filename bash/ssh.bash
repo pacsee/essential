@@ -16,3 +16,11 @@ _complete_ssh_hosts ()
         return 0
 }
 complete -F _complete_ssh_hosts ssh
+
+
+ec2q () {
+    aws ec2 describe-instances \
+        --query 'Reservations[].Instances[].[Tags[?Key==`Name`] | [0].Value, ImageId,InstanceId,PrivateIpAddress,PublicIpAddress]' \
+        --output text \
+        --profile made-prod | grep "$1"
+}
