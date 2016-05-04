@@ -243,7 +243,9 @@ set nolazyredraw
 syntax on
 
 " files to hide in directory listings
-let g:netrw_list_hide='\.py[oc]$,\.svn/$,\.git/$,\.hg/$'
+let g:netrw_list_hide='\.py[oc]$,\.svn/$,\.swp/$,\.git/$,\.hg/$'
+
+filetype plugin indent on
 
 
 " KEYBINDS
