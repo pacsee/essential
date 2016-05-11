@@ -308,3 +308,13 @@ set linebreak
 set nu
 set splitbelow                  " Split windows at bottom
 set splitright
+
+
+" NERDTree
+" Open NERD Tree file
+noremap <silent> <F2> :NERDTreeToggle<cr>
+inoremap <silent> <F2> <ESC>:NERDTreeToggle<cr>
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let g:NERDTreeMapPreview="<CR>"
+let g:NERDTreeMapPreviewVSplit="<TAB>"
+let g:NERDTreeMapPreviewSplit="<S-TAB>"
