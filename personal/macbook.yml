@@ -23,6 +23,8 @@
        - ghostscript
        - ack
        - the_silver_searcher
+       - Caskroom/cask/virtualbox
+       - Caskroom/cask/virtualbox-extension-pack
   pip_common_install:
        - ipython[all]
        - psycopg2
