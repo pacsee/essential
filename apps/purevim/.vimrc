@@ -336,3 +336,9 @@ let g:airline#extensions#tagbar#enabled = 0
 nnoremap <Leader>b :CtrlPBuffer<cr>
 nnoremap <Leader>f :CtrlP<cr>
 
+" AgSearch
+nmap <F7> <Plug>AgActionWord
+
+noremap <silent> <F2> :wa<cr>
+inoremap <silent> <F2> <ESC>:wa<cr>
+
