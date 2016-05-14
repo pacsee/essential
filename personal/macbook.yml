@@ -25,6 +25,7 @@
        - the_silver_searcher
        - Caskroom/cask/virtualbox
        - Caskroom/cask/virtualbox-extension-pack
+       - bash-git-prompt
   pip_common_install:
        - ipython[all]
        - psycopg2

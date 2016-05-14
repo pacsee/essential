@@ -1,6 +1,6 @@
 # .bashrc, run by every non-login bash
 
-. ~/opt/config/bash/prompt.bash
+# . ~/opt/config/bash/prompt.bash
 . ~/opt/config/bash/unused.bash
 . ~/opt/config/bash/grep-functions.bash
 . ~/opt/config/bash/python-functions.bash
@@ -11,6 +11,10 @@
 . ~/opt/config/bash/config.bash
 . ~/opt/config/bash/aliases.bash
 
+if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+    GIT_PROMPT_THEME=Default
+    source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+  fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
