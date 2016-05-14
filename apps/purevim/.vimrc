@@ -297,6 +297,8 @@ vnoremap <left> h
 vnoremap <right> l
 vnoremap <up> k
 vnoremap <down> j
+map <S-F12> :cp<cr>
+map <F12> :cn<cr>
 
 
 nmap <CR> O<Esc>j
@@ -341,4 +343,10 @@ nmap <F7> <Plug>AgActionWord
 
 noremap <silent> <F2> :wa<cr>
 inoremap <silent> <F2> <ESC>:wa<cr>
+
+" PyFlake
+let g:PyFlakeOnWrite = 0
+let g:PyFlakeCheckers = 'pep8,mccabe'
+map <F11> :PyFlake<cr>
+map <S-F11> :PyFlakeAuto<cr>
 

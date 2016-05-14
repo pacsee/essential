@@ -29,6 +29,8 @@
   pip_common_install:
        - ipython[all]
        - psycopg2
+       - frosted
+       - autopep8
   tasks:
     - name: Install packages with homebrew
       homebrew: name={{ item }} update_homebrew=yes
