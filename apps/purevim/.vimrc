@@ -312,9 +312,18 @@ set splitright
 
 " NERDTree
 " Open NERD Tree file
-noremap <silent> <F2> :NERDTreeToggle<cr>
-inoremap <silent> <F2> <ESC>:NERDTreeToggle<cr>
+noremap <silent> <F3> :NERDTreeToggle<cr>
+inoremap <silent> <F3> <ESC>:NERDTreeToggle<cr>
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 " let g:NERDTreeMapPreview="<CR>"
 let g:NERDTreeMapPreviewVSplit="<TAB>"
 let g:NERDTreeMapPreviewSplit="<S-TAB>"
+
+
+" Tagbar
+nmap <F8> :TagbarOpenAutoClose<CR>
+
+" Tabs
+nmap <c-n> :tabnew<CR>
+nmap <F6> :tabnext<CR>
+nmap <s-F6> :tabprevious<CR>
