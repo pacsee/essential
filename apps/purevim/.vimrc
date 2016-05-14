@@ -321,11 +321,18 @@ let g:NERDTreeMapPreviewSplit="<S-TAB>"
 
 
 " Tagbar
-nmap <F8> :TagbarOpenAutoClose<CR>
+nmap <F4> :TagbarOpenAutoClose<CR>
 
 " Tabs
 nmap <c-n> :tabnew<CR>
 nmap <F6> :tabnext<CR>
 nmap <s-F6> :tabprevious<CR>
 
-:set laststatus=2
+" Airline
+set laststatus=2
+let g:airline#extensions#tagbar#enabled = 0
+
+" Buffers
+nnoremap <Leader>b :CtrlPBuffer<cr>
+nnoremap <Leader>f :CtrlP<cr>
+
