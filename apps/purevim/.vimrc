@@ -327,3 +327,5 @@ nmap <F8> :TagbarOpenAutoClose<CR>
 nmap <c-n> :tabnew<CR>
 nmap <F6> :tabnext<CR>
 nmap <s-F6> :tabprevious<CR>
+
+:set laststatus=2
