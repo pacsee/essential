@@ -308,6 +308,7 @@ set title
 set colorcolumn=80
 set linebreak
 set nu
+set relativenumber
 set splitbelow                  " Split windows at bottom
 set splitright
 
