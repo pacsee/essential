@@ -348,9 +348,6 @@ nnoremap <Leader>f :CtrlP<cr>
 " AgSearch
 nmap <F7> <Plug>AgActionWord
 
-noremap <silent> <F2> :wa<cr>
-inoremap <silent> <F2> <ESC>:wa<cr>
-
 " PyFlake
 let g:PyFlakeOnWrite = 0
 let g:PyFlakeCheckers = 'pep8,mccabe'
