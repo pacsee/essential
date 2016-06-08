@@ -26,6 +26,7 @@
        - Caskroom/cask/virtualbox
        - Caskroom/cask/virtualbox-extension-pack
        - bash-git-prompt
+       - reattach-to-user-namespace
   pip_common_install:
        - ipython[all]
        - psycopg2
