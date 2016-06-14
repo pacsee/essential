@@ -327,6 +327,7 @@ let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 " let g:NERDTreeMapPreview="<CR>"
 let g:NERDTreeMapPreviewVSplit="<TAB>"
 let g:NERDTreeMapPreviewSplit="<S-TAB>"
+let NERDTreeQuitOnOpen=1
 
 
 " Tagbar
@@ -442,3 +443,6 @@ function! SetArrowKeysAsTextShifters()
 endfunction
 
 call SetArrowKeysAsTextShifters()
+
+
+let g:ctrlp_max_depth=10
