@@ -27,11 +27,15 @@
        - Caskroom/cask/virtualbox-extension-pack
        - bash-git-prompt
        - reattach-to-user-namespace
+       - ruby
   pip_common_install:
        - ipython[all]
        - psycopg2
        - frosted
        - autopep8
+  gem_common_install:
+       - thyme
+       - thyme_osx_ui
   tasks:
     - name: Install packages with homebrew
       homebrew: name={{ item }} update_homebrew=yes
