@@ -300,8 +300,7 @@ vnoremap <down> j
 map <S-F12> :cp<cr>
 map <F12> :cn<cr>
 
-
-nmap <CR> O<Esc>j
+" nmap <S-CR> O<Esc>j
 " show vim in window title
 set title
 
