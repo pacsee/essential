@@ -12,10 +12,19 @@ function vbox-running {
     VBoxManage list runningvms
 }
 
-eval $(docker-machine env default)
-if [  "$DOCKER_HOST" != "" ]; then
-    export PGHOST=$(echo | awk -v d="$DOCKER_HOST" '{print substr(d,7,length(d)-11) }')
-fi
+
+function use-docker-machine {
+    eval $(docker-machine env default)
+    if [  "$DOCKER_HOST" != "" ]; then
+        export PGHOST=$(echo | awk -v d="$DOCKER_HOST" '{print substr(d,7,length(d)-11) }')
+    fi
+}
+function use-docker {
+    unset DOCKER_TLS_VERIFY
+    unset DOCKER_HOST
+    unset DOCKER_CERT_PATH
+    unset DOCKER_MACHINE_NAME
+}
 
 function docker-cleanup {
     docker rmi $(docker images -q -f dangling=true)

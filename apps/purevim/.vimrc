@@ -407,6 +407,8 @@ function! SetArrowKeysAsTextShifters()
     nmap <silent> <Left> <<
     nmap <silent> <Right> >>
     nnoremap <silent> <Up> <Esc>:call DelEmptyLineAbove()<CR>
+    nnoremap <silent> <S-UP> <Esc>:call AddEmptyLineAbove()<CR>k
+    nnoremap <silent> <S-Down> <Esc>:call DelEmptyLineBelow()<CR>
     nnoremap <silent> <Down>  <Esc>:call AddEmptyLineAbove()<CR>
     nnoremap <silent> <C-Up> <Esc>:call DelEmptyLineBelow()<CR>
     nnoremap <silent> <C-Down> <Esc>:call AddEmptyLineBelow()<CR>
@@ -428,8 +430,8 @@ function! SetArrowKeysAsTextShifters()
     inoremap <silent> <C-Down> <Esc>:call AddEmptyLineBelow()<CR>a
 
     " disable modified versions we are not using
-    nnoremap  <S-Up>     <NOP>
-    nnoremap  <S-Down>   <NOP>
+    "nnoremap  <S-Up>     <NOP>
+    "nnoremap  <S-Down>   <NOP>
     nnoremap  <S-Left>   <NOP>
     nnoremap  <S-Right>  <NOP>
     vnoremap  <S-Up>     <NOP>
@@ -444,5 +446,12 @@ endfunction
 
 call SetArrowKeysAsTextShifters()
 
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
 
 let g:ctrlp_max_depth=10
