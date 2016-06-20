@@ -6,6 +6,8 @@ set -o notify
 # Don't use ^D to exit
 #set -o ignoreeof
 
+#allow CTRL-s to go trough
+stty -ixon
 
 # Use case-insensitive filename globbing
 # shopt -s nocaseglob

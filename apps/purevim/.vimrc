@@ -438,6 +438,7 @@ function! SetArrowKeysAsTextShifters()
     vnoremap  <S-Down>   <NOP>
     vnoremap  <S-Left>   <NOP>
     vnoremap  <S-Right>  <NOP>
+
     inoremap  <S-Up>     <NOP>
     inoremap  <S-Down>   <NOP>
     inoremap  <S-Left>   <NOP>
