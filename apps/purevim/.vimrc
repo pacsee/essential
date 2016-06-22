@@ -326,6 +326,7 @@ let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 " let g:NERDTreeMapPreview="<CR>"
 let g:NERDTreeMapPreviewVSplit="<TAB>"
 let g:NERDTreeMapPreviewSplit="<S-TAB>"
+let g:NERDTreeWinSize = 40
 let NERDTreeQuitOnOpen=1
 
 
