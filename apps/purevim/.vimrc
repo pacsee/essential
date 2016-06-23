@@ -206,7 +206,7 @@ set grepprg=grp\ -n\ $*\ /dev/null
 
 " make commands invoked by grep go via an interactive shell
 " Without this, the bash alias 'grp' in 'grpprg' is not expanded
-set shellcmdflag=-ci
+"set shellcmdflag=-ci
 
 " silent grep and then show results in quickfix
 function! Grep(args)
@@ -217,8 +217,8 @@ endfunction
 command! -nargs=* -complete=file Grep call Grep(<q-args>)
 
 " Grep all files for the word under the cursor (& case insensitive version)
-noremap <Leader>g :Grep -w '<c-r><c-w>' .<cr>
-noremap <Leader>G :Grep -wi '<c-r><c-w>' .<cr>
+noremap <Leader>g :Ag -w '<c-r><c-w>' .<cr>
+noremap <Leader>G :Ag -wi '<c-r><c-w>' .<cr>
 
 " allow use of mouse pretty much everywhere
 set mouse=a
