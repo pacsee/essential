@@ -22,5 +22,5 @@ ec2q () {
     aws ec2 describe-instances \
         --query 'Reservations[].Instances[].[Tags[?Key==`Name`] | [0].Value, ImageId,InstanceId,PrivateIpAddress,PublicIpAddress]' \
         --output text \
-        --profile made-prod | grep "$1"
+        --profile "$1" | grep "$2"
 }
