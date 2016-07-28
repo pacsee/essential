@@ -356,7 +356,12 @@ let g:PyFlakeCheckers = 'pep8,mccabe'
 map <F11> :PyFlake<cr>
 map <S-F11> :PyFlakeAuto<cr>
 
-
+" Mouse fix
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
 
 
 " EXPERIMENTAL ARROW KEY AVOIDANCE
@@ -446,7 +451,7 @@ function! SetArrowKeysAsTextShifters()
     inoremap  <S-Right>  <NOP>
 endfunction
 
-call SetArrowKeysAsTextShifters()
+"call SetArrowKeysAsTextShifters()
 
 if &term =~ '^screen'
     " tmux will send xterm-style keys when its xterm-keys option is on
