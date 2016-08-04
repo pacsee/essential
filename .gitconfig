@@ -38,6 +38,8 @@
     cleanup  = clean
     cleanall = !sh -c 'git clean -x' && git reset --hard
 
+    f = fetch -p -t
+
 [push]
 	default = upstream
 [merge]
