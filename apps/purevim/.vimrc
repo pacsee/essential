@@ -464,3 +464,7 @@ endif
 let g:ctrlp_max_depth=10
 
 nnoremap <C-j> O<ESC>
+
+" Indention colors
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
