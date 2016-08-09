@@ -1,0 +1,2 @@
+https://github.com/MattesGroeger/vim-bookmarks
+https://github.com/nathanaelkane/vim-indent-guides
