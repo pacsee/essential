@@ -467,4 +467,4 @@ nnoremap <C-j> O<ESC>
 
 " Indention colors
 hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
+hi IndentGuidesEven ctermbg=235
