@@ -274,10 +274,6 @@ map <C-F> w
 noremap <silent> <c-s> :wa<cr>
 inoremap <silent> <c-s> <ESC>:wa<cr>
 
-" quit file
-noremap <silent> <c-q> :qa<cr>
-inoremap <silent> <c-q> <c-o>:qa<cr>
-
 " close buffer
 noremap <c-backspace> :Bclose<cr>
 noremap <c-s-backspace> :Bclose!<cr>
@@ -297,8 +293,8 @@ vnoremap <left> h
 vnoremap <right> l
 vnoremap <up> k
 vnoremap <down> j
-map <S-F12> :cp<cr>
-map <F12> :cn<cr>
+"map <S-F12> :cp<cr>
+"map <F12> :cn<cr>
 
 " nmap <S-CR> O<Esc>j
 " show vim in window title
@@ -319,15 +315,14 @@ highlight MatchParen term=standout ctermfg=Red
 set nolist!
 
 " NERDTree
-" Open NERD Tree file
-noremap <silent> <F3> :NERDTreeToggle<cr>
-inoremap <silent> <F3> <ESC>:NERDTreeToggle<cr>
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 " let g:NERDTreeMapPreview="<CR>"
 let g:NERDTreeMapPreviewVSplit="<TAB>"
 let g:NERDTreeMapPreviewSplit="<S-TAB>"
 let g:NERDTreeWinSize = 40
 let NERDTreeQuitOnOpen=1
+" Open NERD Tree file
+nnoremap <Leader>o :NERDTreeToggle<cr>
 
 
 " Tagbar
@@ -346,6 +341,11 @@ let g:airline#extensions#tagbar#enabled = 0
 nnoremap <Leader>b :CtrlPBuffer<cr>
 nnoremap <Leader>f :CtrlP<cr>
 nnoremap <Leader>t :CtrlPTag<cr>
+nnoremap <Leader>l :TagbarOpenAutoClose<cr>
+nnoremap <Leader>L :TagbarToggle<cr>
+nnoremap <Leader>c :ccl<cr>
+nnoremap <Leader>k :PyFlake<cr>
+nnoremap <Leader>K :PyFlakeAuto<cr>
 
 " AgSearch
 nmap <F7> <Plug>AgActionWord
@@ -468,3 +468,7 @@ nnoremap <C-j> O<ESC>
 " Indention colors
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=235
+
+
+set modeline
+set modelines=5
