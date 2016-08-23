@@ -28,6 +28,7 @@
        - bash-git-prompt
        - reattach-to-user-namespace
        - ruby
+       - irssi
   pip_common_install:
        - ipython[all]
        - psycopg2
