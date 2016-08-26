@@ -29,6 +29,7 @@
        - reattach-to-user-namespace
        - ruby
        - irssi
+       - qemu
   pip_common_install:
        - ipython[all]
        - psycopg2
