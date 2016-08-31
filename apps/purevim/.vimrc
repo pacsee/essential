@@ -191,7 +191,7 @@ set clipboard+=unnamed
 noremap Y y$
 
 " I don't like folded regions
-set nofoldenable
+" set nofoldenable
 
 " omit intrusive 'press ENTER' (etc) status line messages
 set shortmess=atTWI
@@ -251,8 +251,8 @@ filetype plugin indent on
 " KEYBINDS
 
 " move up/down by visible lines on long wrapped lines of text
-nnoremap k gk
-nnoremap j gj
+" nnoremap k gk
+" nnoremap j gj
 vnoremap <a-4> g$
 nnoremap <a-4> g$
 vnoremap <a-0> g^
