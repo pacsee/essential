@@ -514,3 +514,11 @@ endfunction
 
 nmap <silent> <S-F7> :call ToggleSpell()<CR>
 "set statusline+=[%{&spell?&spelllang:'nospell'}]
+
+
+call plug#begin('~/.vim/plugged')
+
+" Typescript syntax
+Plug 'leafgarland/typescript-vim'
+
+call plug#end()

@@ -8,3 +8,4 @@ __pycache__
 _local
 .netrwhist
 .VimballRecord
+apps/purevim/.vim/plugged/
