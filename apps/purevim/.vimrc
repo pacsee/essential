@@ -534,6 +534,7 @@ set statusline +=%1*%4v\ %*             "virtual column number
 set statusline=%f%m%=%l/%L\ (%p%%)\ %4v\ [%{&spell?&spelllang:'nospell'}]
 
 " now set it up to change the status line based on mode
+" http://vim.wikia.com/wiki/Change_statusline_color_to_show_insert_or_normal_mode
 "if version >= 700
 "  au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=undercurl guisp=Magenta
 "  au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
