@@ -533,6 +533,12 @@ set statusline +=%1*%4v\ %*             "virtual column number
 "set statusline=%f\ [%l/%L]
 set statusline=%f%m%=%l/%L\ (%p%%)\ %4v\ [%{&spell?&spelllang:'nospell'}]
 
+" now set it up to change the status line based on mode
+"if version >= 700
+"  au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=undercurl guisp=Magenta
+"  au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
+"endif
+
 call plug#begin('~/.vim/plugged')
 
 " Typescript syntax
