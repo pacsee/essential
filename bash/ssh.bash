@@ -24,3 +24,12 @@ ec2q () {
         --output text \
         --profile "$1" | grep "$2"
 }
+
+
+flush-dns-cache () {
+    sudo killall -HUP mDNSResponder
+}
+
+update-time () {
+    sudo ntpdate -u time.euro.apple.com
+}

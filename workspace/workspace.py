@@ -56,7 +56,7 @@ class LSCommand(Command):
 
     def __call__(self):
         if self.args.completion:
-            print " ".join(WORKSPACES)
+            print(" ".join(WORKSPACES))
             sys.exit(0)
         for ws in WORKSPACES:
             print(ws)
