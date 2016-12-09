@@ -544,5 +544,6 @@ call plug#begin('~/.vim/plugged')
 
 " Typescript syntax
 Plug 'leafgarland/typescript-vim'
+Plug 'yggdroot/indentline'
 
 call plug#end()
