@@ -547,3 +547,9 @@ Plug 'leafgarland/typescript-vim'
 Plug 'yggdroot/indentline'
 
 call plug#end()
+
+
+" Custom plugin configs
+
+" Indentline
+let g:indentLine_indentLevel = 25
