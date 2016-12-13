@@ -237,7 +237,8 @@ set tags+=tags;/
 " indicate a fast terminal - more redraw chars sent for smoother redraw
 set ttyfast
 " don't redraw while running macros
-set nolazyredraw
+" set nolazyredraw
+set lazyredraw
 
 " turn on syntax highlighting
 syntax on
@@ -550,6 +551,3 @@ call plug#end()
 
 
 " Custom plugin configs
-
-" Indentline
-let g:indentLine_indentLevel = 25
