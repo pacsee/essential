@@ -217,8 +217,8 @@ endfunction
 command! -nargs=* -complete=file Grep call Grep(<q-args>)
 
 " Grep all files for the word under the cursor (& case insensitive version)
-noremap <Leader>g :Ag -w '<c-r><c-w>' .<cr>
-noremap <Leader>G :Ag -wi '<c-r><c-w>' .<cr>
+noremap <Leader>g :Ack -w '<c-r><c-w>' .<cr>
+noremap <Leader>G :Ack -wi '<c-r><c-w>' .<cr>
 
 " allow use of mouse pretty much everywhere
 set mouse=a
@@ -347,9 +347,6 @@ nnoremap <Leader>L :TagbarToggle<cr>
 nnoremap <Leader>c :ccl<cr>
 nnoremap <Leader>k :PyFlake<cr>
 nnoremap <Leader>K :PyFlakeAuto<cr>
-
-" AgSearch
-nmap <F7> <Plug>AgActionWord
 
 " PyFlake
 let g:PyFlakeOnWrite = 0
@@ -546,6 +543,7 @@ call plug#begin('~/.vim/plugged')
 " Typescript syntax
 Plug 'leafgarland/typescript-vim'
 Plug 'yggdroot/indentline'
+Plug 'mileszs/ack.vim'
 
 call plug#end()
 
