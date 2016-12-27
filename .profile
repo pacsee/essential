@@ -56,4 +56,4 @@ if [ -a "$HOME/.profile_local" ]; then
 fi
 
 # added by Miniconda3 3.19.0 installer
-export PATH="$PATH:/Users/csaba/opt/miniconda3/bin"
+export PATH="$PATH:/Users/csaba/anaconda/bin"
