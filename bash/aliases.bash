@@ -22,3 +22,5 @@ if ! hash gls 2>/dev/null; then
 else
     alias gls='gls --group-directories-first -G'
 fi
+
+alias ec='emacs -nw'

@@ -4,7 +4,6 @@
 # i.e. stuff inherited by child processes
 
 # Prefix to PATH ###############################
-
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
@@ -41,6 +40,11 @@ COMP_TAR_INTERNAL_PATHS=1
 CPPFLAGS="-I/usr/local/include"
 export CPPFLAGS
 
+if [[ -z $TMUX ]]; then
+    # added by Miniconda3 3.19.0 installer
+    export PATH="$PATH:/Users/csaba/anaconda/bin"
+fi
+
 # source .bashrc if we're running Bash
 # Is reqd on OSX. Not reqd on Ubuntu.
 if [[ "$OSTYPE" == darwin* ]] ; then
@@ -54,6 +58,3 @@ fi
 if [ -a "$HOME/.profile_local" ]; then
     . $HOME/.profile_local
 fi
-
-# added by Miniconda3 3.19.0 installer
-export PATH="$PATH:/Users/csaba/opt/miniconda3/bin"
