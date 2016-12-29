@@ -14,7 +14,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (markdown-mode neotree evil))))
+ '(package-selected-packages (quote (sr-speedbar markdown-mode neotree evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -29,3 +29,6 @@
 (load-file "~/.emacs.d/paren-mode.el")
 (load-file "~/.emacs.d/plugins/highlight-indentation.el")
 (load-file "~/.emacs.d/plugins/yaml-mode.el")
+
+(require 'sr-speedbar)
+(define-key evil-normal-state-map ",t" 'sr-speedbar-toggle)
