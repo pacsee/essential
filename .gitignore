@@ -4,7 +4,8 @@ __pycache__
 .vim/.netrwhist
 .emacs.d/SessionDesktop.el
 .emacs.d/_trash/
-.emacs.d/elpa/archives/
+emacs.d/elpa/archives/
+emacs.d/tramp
 _local
 .netrwhist
 .VimballRecord
