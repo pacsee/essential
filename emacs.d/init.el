@@ -24,3 +24,4 @@
 ; Custom configurations
 
 (load-file "~/.emacs.d/neotree-config.el")
+(load-file "~/.emacs.d/relative-line-numbers.el")
