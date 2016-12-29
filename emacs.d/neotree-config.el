@@ -2,6 +2,8 @@
 (define-key evil-normal-state-map ",o" 'neotree-toggle)
 ;(global-set-key ",o" 'neotree-toggle)
 
+(setq neo-window-width 35)
+
 (add-hook 'neotree-mode-hook
             (lambda ()
               (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)

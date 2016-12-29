@@ -4,6 +4,7 @@
 (package-initialize)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+;(menu-bar-mode -1)
 
 (require 'evil)
 (evil-mode 1)
@@ -25,3 +26,6 @@
 
 (load-file "~/.emacs.d/neotree-config.el")
 (load-file "~/.emacs.d/relative-line-numbers.el")
+(load-file "~/.emacs.d/paren-mode.el")
+(load-file "~/.emacs.d/plugins/highlight-indentation.el")
+(load-file "~/.emacs.d/plugins/yaml-mode.el")
