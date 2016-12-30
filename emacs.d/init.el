@@ -16,7 +16,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (evil-org org yaml-mode yasnippet magit sr-speedbar markdown-mode neotree evil))))
+    (anaconda-mode python-mode evil-org org yaml-mode yasnippet magit sr-speedbar markdown-mode neotree evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -53,3 +53,13 @@
 
 (load-file "~/.emacs.d/config/backup.el")
 (load-file "~/.emacs.d/keybindings.el")
+(setq initial-major-mode 'org-mode)
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+(add-hook 'python-mode-hook 'anaconda-mode)
+(setq initial-scratch-message "\
+# This buffer is for notes you don't want to save, and for Python code.
+# keys: ...
+")
+(setq inhibit-startup-screen t)
