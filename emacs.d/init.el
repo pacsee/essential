@@ -63,3 +63,5 @@
 # keys: ...
 ")
 (setq inhibit-startup-screen t)
+(setq python-python-command "~/anaconda/bin/python")
+
