@@ -51,4 +51,5 @@
 (require 'sr-speedbar)
 (require 'yaml-mode)
 
+(load-file "~/.emacs.d/config/backup.el")
 (load-file "~/.emacs.d/keybindings.el")
