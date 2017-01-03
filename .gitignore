@@ -6,6 +6,7 @@ __pycache__
 .emacs.d/_trash/
 emacs.d/elpa
 emacs.d/tramp
+emacs.d/eshell/history
 _local
 .netrwhist
 .VimballRecord
