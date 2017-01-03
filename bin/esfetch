@@ -1,0 +1,50 @@
+#!/usr/bin/python
+import argparse
+import sys
+
+import requests
+
+ESURL = "https://prod-eventstore.made.com:2113/streams/{stream}/head/backward/20"
+ESHEADERS = {'accept': 'application/vnd.eventstore.atom+json'}
+
+
+def main(args):
+    stream = args.stream
+    for entry in get_eventstore_page(stream):
+        print(entry)
+
+
+def get_eventstore_page(stream):
+    next_page = ESURL.format(stream=stream)
+    while next_page:
+        r = requests.get(next_page, headers=ESHEADERS, params={'embed': 'body'})
+        if r.status_code != 200:
+            raise Exception(r.text)
+        entries, next_page = parse_eventstore_page(r.json())
+        for entry in entries:
+            try:
+                entry['data'] = json.loads(entry['data'])
+            except:
+                pass
+            yield entry
+
+
+def parse_eventstore_page(page):
+    entries = page.get('entries', [])
+    next_page = None
+    for link in page.get('links', []):
+        if link.get('relation', None) == 'next':
+            next_page = link.get('uri', None)
+    return entries, next_page
+    
+
+def get_parser(prog):
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('stream')
+
+    return parser
+
+
+if __name__ == "__main__":
+    main(get_parser(sys.argv[0]).parse_args(sys.argv[1:]))
