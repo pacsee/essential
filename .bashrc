@@ -4,6 +4,7 @@
 . ~/opt/config/bash/unused.bash
 . ~/opt/config/bash/grep-functions.bash
 . ~/opt/config/bash/python-functions.bash
+. ~/opt/config/bash/nodejs.bash
 . ~/opt/config/bash/git-functions.bash
 . ~/opt/config/bash/git-completion.bash
 . ~/opt/config/bash/virtualisation.bash
