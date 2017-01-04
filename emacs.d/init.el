@@ -47,6 +47,7 @@
 (load-file "~/.emacs.d/paren-mode.el")
 (load-file "~/.emacs.d/plugins/highlight-indentation.el")
 (load-file "~/.emacs.d/plugins/copy-paste.el")
+(load-file "~/.emacs.d/plugins/extra-scratches.el")
 
 (require 'sr-speedbar)
 (require 'yaml-mode)
