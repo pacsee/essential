@@ -4,8 +4,6 @@
 (package-initialize)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
-;(menu-bar-mode -1)
-(setq x-select-enable-clipboard nil)
 
 
 
@@ -47,7 +45,6 @@
 (load-file "~/.emacs.d/relative-line-numbers.el")
 (load-file "~/.emacs.d/paren-mode.el")
 (load-file "~/.emacs.d/plugins/highlight-indentation.el")
-(load-file "~/.emacs.d/plugins/copy-paste.el")
 (load-file "~/.emacs.d/plugins/extra-scratches.el")
 
 (require 'sr-speedbar)
