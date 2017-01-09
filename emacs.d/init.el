@@ -48,6 +48,8 @@
 )
 
 (use-package org
+    :init
+    (setq org-src-fontify-natively t)
     :config
     (setq initial-major-mode 'org-mode)
     (org-babel-do-load-languages
@@ -55,7 +57,13 @@
      '((python . t)))
     (setq initial-scratch-message "\
 # This buffer is for notes you don't want to save, and for Python code.
-# keys: ...
+# keys: 
+#   python_ + TAB for python yasnipet
+#   C-c ': edit block - C-c C-c: execute code block
+
+#+BEGIN_SRC python :result value
+
+#+END_SRC
 ")
 )
 
@@ -75,7 +83,10 @@
 
 ;;; Tools
 (use-package ag)
-(use-package yasnippet)
+(use-package yasnippet
+    :config
+    (yas-global-mode 1)
+)
 
 ;;; Modes
 (use-package yaml-mode)

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Python
+# key: python_
+# --
+#+BEGIN_SRC python :results ${1:$$(yas-choose-value '("output" "value" "raw" "pp" "file"))} :session $2
+$0
+#+END_SRC
