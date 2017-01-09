@@ -125,7 +125,11 @@
     :config
     (osx-clipboard-mode +1)
 )
-
+(use-package exec-path-from-shell
+    :config
+    (when (memq window-system '(mac ns))
+      (exec-path-from-shell-initialize))
+)
 ; Custom configurations / custom plugins
 
 (load-file "~/.emacs.d/includes/relative-line-numbers.el")
