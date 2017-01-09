@@ -7,6 +7,10 @@
 (setq safe-local-variable-values (quote ((encoding . utf-8))))
 (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
 
+;(add-to-list 'load-path "~/.emacs.d/plugins/")
+;(progn (cd "~/.emacs.d/plugins/")
+;       (normal-top-level-add-subdirs-to-load-path))
+
 (setq show-paren-delay 0)
 (show-paren-mode 1)
 
@@ -100,8 +104,13 @@
 (use-package evil-magit)
 (use-package evil-org)
 
-; Custom configurations / custom plugins
 
+(use-package osx-clipboard
+    :config
+    (osx-clipboard-mode +1)
+)
+
+; Custom configurations / custom plugins
 
 (load-file "~/.emacs.d/includes/relative-line-numbers.el")
 (load-file "~/.emacs.d/includes/backup.el")
