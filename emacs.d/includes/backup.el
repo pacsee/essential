@@ -1,7 +1,7 @@
 (setq backup-directory-alist
-	`((".*" . ,temporary-file-directory)))
+    `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
-	`((".*" ,temporary-file-directory t)))
+    `((".*" ,temporary-file-directory t)))
 (message "Deleting old backup files...")
 (let ((week (* 60 60 24 7))
       (current (float-time (current-time))))

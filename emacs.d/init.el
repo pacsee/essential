@@ -1,8 +1,14 @@
-;;;;; init.el - Emacs main configuration
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; init.el - Emacs main configurationi                                    ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;; Global config - Misc
 (setq lexical-binding t)
 (setq safe-local-variable-values (quote ((encoding . utf-8))))
 (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
+
+(setq show-paren-delay 0)
+(show-paren-mode 1)
 
 ;;; UI Setup
 (toggle-scroll-bar -1)
@@ -11,7 +17,7 @@
 
 ;;; Packaging
 (setq package-enable-at-startup nil)
-(setq custom-file (concat user-emacs-directory "customizations.el"))
+(setq custom-file (concat user-emacs-directory "config/customizations.el"))
 (load custom-file t)
 
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
@@ -33,6 +39,8 @@
 (use-package evil
     :config
     (evil-mode 1)
+    (define-key evil-normal-state-map ",b" 'ibuffer)
+    (define-key evil-normal-state-map ",w" 'toggle-truncate-lines)
 )
 
 (use-package org
@@ -95,18 +103,8 @@
 ; Custom configurations / custom plugins
 
 
-(load-file "~/.emacs.d/relative-line-numbers.el")
-(load-file "~/.emacs.d/paren-mode.el")
-(load-file "~/.emacs.d/config/backup.el")
-(load-file "~/.emacs.d/keybindings.el")
-
-
+(load-file "~/.emacs.d/includes/relative-line-numbers.el")
+(load-file "~/.emacs.d/includes/backup.el")
 
 ;(load-file "~/.emacs.d/plugins/highlight-indentation.el")
 ;(load-file "~/.emacs.d/plugins/extra-scratches.el")
-
-;(require 'sr-speedbar)
-;(require 'yaml-mode)
-
-;(add-hook 'python-mode-hook 'anaconda-mode)
-
