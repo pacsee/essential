@@ -51,6 +51,7 @@
     :init
     (setq org-src-fontify-natively t)
     (setq org-babel-python-command "~/anaconda/bin/python3")
+    (load-file "~/.emacs.d/includes/org-babel-errors.el")
     :config
     (setq initial-major-mode 'org-mode)
     (org-babel-do-load-languages
