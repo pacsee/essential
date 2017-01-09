@@ -45,6 +45,7 @@
     (evil-mode 1)
     (define-key evil-normal-state-map ",b" 'ibuffer)
     (define-key evil-normal-state-map ",w" 'toggle-truncate-lines)
+    (evil-set-initial-state 'term-mode 'emacs)
 )
 
 (use-package org
