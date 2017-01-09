@@ -17,7 +17,7 @@
 
 ;;; Packaging
 (setq package-enable-at-startup nil)
-(setq custom-file (concat user-emacs-directory "config/customizations.el"))
+(setq custom-file (concat user-emacs-directory "config.el"))
 (load custom-file t)
 
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
