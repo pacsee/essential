@@ -11,8 +11,8 @@
 
 ;;; Packaging
 (setq package-enable-at-startup nil)
-;(setq custom-file (concat user-emacs-directory "customizations.el"))
-;(load custom-file t)
+(setq custom-file (concat user-emacs-directory "customizations.el"))
+(load custom-file t)
 
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
