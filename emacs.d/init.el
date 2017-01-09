@@ -108,3 +108,5 @@
 
 ;(load-file "~/.emacs.d/plugins/highlight-indentation.el")
 ;(load-file "~/.emacs.d/plugins/extra-scratches.el")
+;
+(load-file "~/.emacs.d/themes.el")
