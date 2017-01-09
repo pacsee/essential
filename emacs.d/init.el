@@ -50,6 +50,7 @@
 (use-package org
     :init
     (setq org-src-fontify-natively t)
+    (setq org-babel-python-command "~/anaconda/bin/python3")
     :config
     (setq initial-major-mode 'org-mode)
     (org-babel-do-load-languages
