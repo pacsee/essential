@@ -13,6 +13,8 @@
 
 (setq show-paren-delay 0)
 (show-paren-mode 1)
+(setq shell-file-name "bash")
+(setq shell-command-switch "-ic")
 
 ;;; UI Setup
 (toggle-scroll-bar -1)
@@ -98,7 +100,8 @@
 (use-package yaml-mode)
 (use-package python-mode
     :config
-    (setq python-python-command "~/anaconda/bin/python")
+    (setq python-python-command "~/anaconda/bin/python3")
+    (setq python-shell-interpreter "~/anaconda/bin/python3")
 )
 (use-package markdown-mode)
 (use-package dockerfile-mode)
