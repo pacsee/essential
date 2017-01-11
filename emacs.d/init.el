@@ -87,7 +87,10 @@
             (define-key evil-normal-state-local-map (kbd "RET") 'neotree-quick-look)))
 )
 
-(use-package magit)
+(use-package magit
+    :bind (("C-x g" . magit-status)
+           ("C-x M-g" . magit-dispatch-popup))
+)
 
 ;;; Tools
 (use-package ag)
