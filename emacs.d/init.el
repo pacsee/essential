@@ -137,6 +137,11 @@
     (when (memq window-system '(mac ns))
       (exec-path-from-shell-initialize))
 )
+
+(use-package projectile
+    :config
+    (projectile-global-mode)
+)
 ; Custom configurations / custom plugins
 
 (load-file "~/.emacs.d/includes/relative-line-numbers.el")
