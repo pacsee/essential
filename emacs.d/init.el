@@ -2,6 +2,12 @@
 ;;; init.el - Emacs main configurationi                                    ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;; OSX config
+(when (string-equal system-type "darwin")
+  (setq exec-path (append exec-path '("/usr/local/bin")))
+)
+
+
 ;;; Global config - Misc
 (setq lexical-binding t)
 (setq safe-local-variable-values (quote ((encoding . utf-8))))
