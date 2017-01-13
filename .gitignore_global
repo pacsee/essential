@@ -20,3 +20,4 @@ _local
 test-reports
 *.swo
 .vimrc_local
+.dir-locals.el
