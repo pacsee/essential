@@ -144,7 +144,18 @@
 (use-package projectile
     :config
     (projectile-global-mode)
+    (setq projectile-enable-caching t)
 )
+
+(use-package helm-projectile)
+;(use-package ivy)
+;(use-package swiper)
+;(use-package counsel
+;    :defer
+;    :init
+;    (setq projectile-completion-system 'ivy)
+;)
+; (use-package counsel-projectile)
 ; Custom configurations / custom plugins
 
 (load-file "~/.emacs.d/includes/relative-line-numbers.el")
