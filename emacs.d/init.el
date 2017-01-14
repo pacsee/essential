@@ -185,6 +185,14 @@
     (indent-guide-global-mode)
     (setq indent-guide-recursive t)
 )
+
+(use-package fill-column-indicator
+    :init
+    (setq fci-rule-column 79)
+    :config
+    (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+    (global-fci-mode 1)
+)
 ;(use-package ivy)
 ;(use-package swiper)
 ;(use-package counsel
