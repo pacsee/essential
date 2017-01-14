@@ -1,4 +1,8 @@
-Essential tool on Linux
------------------------
+Editor
+------
 
-This banch of code should be useful.
+Emacs configuration
+===================
+
+
+

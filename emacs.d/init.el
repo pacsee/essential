@@ -147,11 +147,11 @@
 (use-package evil-magit)
 (use-package evil-org)
 
-
 (use-package osx-clipboard
     :config
     (osx-clipboard-mode +1)
 )
+
 (use-package exec-path-from-shell
     :config
     (when (memq window-system '(mac ns))
@@ -180,5 +180,17 @@
 
 ;(load-file "~/.emacs.d/plugins/highlight-indentation.el")
 ;(load-file "~/.emacs.d/plugins/extra-scratches.el")
+
+(setq
+   backup-by-copying t      ; don't clobber symlinks
+   backup-directory-alist
+    '(("." . "~/.emacs.d/tmp/"))    ; don't litter my fs tree
+   delete-old-versions t
+   kept-new-versions 6
+   kept-old-versions 2
+   version-control t)
+(setq auto-save-file-name-transforms
+  `((".*" "~/.emacs-saves/" t))
+)
 ;
 (load-file "~/.emacs.d/themes.el")
