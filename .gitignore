@@ -8,6 +8,9 @@ emacs.d/elpa
 emacs.d/tramp
 emacs.d/cache
 emacs.d/games
+emacs.d/tmp
+emacs.d/backup
+emacs.d/autosave
 emacs.d/eshell/history
 _local
 .netrwhist

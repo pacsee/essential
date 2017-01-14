@@ -189,22 +189,31 @@
 ; (use-package counsel-projectile)
 ; Custom configurations / custom plugins
 
-;(load-file "~/.emacs.d/includes/relative-line-numbers.el")
-;(load-file "~/.emacs.d/includes/backup.el")
-
 ;(load-file "~/.emacs.d/plugins/highlight-indentation.el")
 ;(load-file "~/.emacs.d/plugins/extra-scratches.el")
+
+
+
+(defvar autosave-dir (expand-file-name "~/.emacs.d/autosave/"))
+(unless (file-exists-p autosave-dir)
+  (make-directory autosave-dir)
+)
+(setq auto-save-list-file-prefix autosave-dir)
+(setq auto-save-file-name-transforms `((".*" ,autosave-dir t)))
+
+
+(defvar backup-dir (expand-file-name "~/.emacs.d/backup/"))
+(unless (file-exists-p backup-dir)
+  (make-directory backup-dir)
+)
 
 (setq
    backup-by-copying t      ; don't clobber symlinks
    backup-directory-alist
-    '(("." . "~/.emacs.d/tmp/"))    ; don't litter my fs tree
+    '(("." . backup-dir))    ; don't litter my fs tree
    delete-old-versions t
    kept-new-versions 6
    kept-old-versions 2
    version-control t)
-(setq auto-save-file-name-transforms
-  `((".*" "~/.emacs-saves/" t))
-)
 ;
 (load-file "~/.emacs.d/themes.el")
