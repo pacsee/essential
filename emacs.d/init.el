@@ -162,9 +162,23 @@
     :config
     (projectile-global-mode)
     (setq projectile-enable-caching t)
+    :init
+    (unless (file-exists-p "~/.emacs.d/cache/")
+      (make-directory "~/.emacs.d/cache")
+    )
+    (setq projectile-cache-file "~/.emacs.d/cache/projectile.cache")
+    (setq projectile-known-projects-file "~/.emacs.d/cache/projectile-bookmarks.eld")
 )
 
 (use-package helm-projectile)
+(use-package flx-ido
+    :config
+    :disabled ;; due to haveing grizzl
+    (flx-ido-mode 1)
+    ;; disable ido faces to see flx highlights.
+    (setq ido-enable-flex-matching t)
+    (setq ido-use-faces nil)
+)
 ;(use-package ivy)
 ;(use-package swiper)
 ;(use-package counsel
