@@ -58,6 +58,11 @@
     (define-key evil-normal-state-map ",w" 'toggle-truncate-lines)
     (evil-set-initial-state 'term-mode 'emacs)
 )
+(use-package evil-leader
+    :config
+    (evil-leader/set-leader ",")
+    (global-evil-leader-mode)
+)
 
 (use-package org
     :init
@@ -107,6 +112,12 @@
     :config
     (yas-global-mode 1)
 )
+(use-package relative-line-numbers
+    :config
+    (global-relative-line-numbers-mode)
+    (set-face-foreground 'linum "yellow")
+)
+
 
 ;;; Modes
 (use-package yaml-mode)
@@ -164,8 +175,8 @@
 ; (use-package counsel-projectile)
 ; Custom configurations / custom plugins
 
-(load-file "~/.emacs.d/includes/relative-line-numbers.el")
-(load-file "~/.emacs.d/includes/backup.el")
+;(load-file "~/.emacs.d/includes/relative-line-numbers.el")
+;(load-file "~/.emacs.d/includes/backup.el")
 
 ;(load-file "~/.emacs.d/plugins/highlight-indentation.el")
 ;(load-file "~/.emacs.d/plugins/extra-scratches.el")
