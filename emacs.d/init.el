@@ -179,6 +179,12 @@
     (setq ido-enable-flex-matching t)
     (setq ido-use-faces nil)
 )
+
+(use-package indent-guide
+    :config
+    (indent-guide-global-mode)
+    (setq indent-guide-recursive t)
+)
 ;(use-package ivy)
 ;(use-package swiper)
 ;(use-package counsel
@@ -221,5 +227,6 @@
 (require 'whitespace)
 (setq whitespace-style '(face empty tabs lines-tail trailing))
 (global-whitespace-mode t)
+
 
 (load-file "~/.emacs.d/themes.el")
