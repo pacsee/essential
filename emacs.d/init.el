@@ -250,7 +250,9 @@
 
 
 (require 'whitespace)
-(setq whitespace-style '(face empty tabs lines-tail trailing))
+;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Useless-Whitespace.html
+(setq whitespace-style '(face empty tabs spaces newline empty big-indent trailing tab-mark)
+;; add lines-tail or lines to show too long lines
 (global-whitespace-mode t)
 
 
