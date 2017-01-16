@@ -193,8 +193,9 @@
 
 (use-package indent-guide
     :config
-    (indent-guide-global-mode)
     (setq indent-guide-recursive t)
+    ;(setq indent-guide-threshold 1)
+    (indent-guide-global-mode)
 )
 
 (use-package fill-column-indicator
