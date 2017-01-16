@@ -192,6 +192,7 @@
 )
 
 (use-package indent-guide
+    :disabled
     :config
     (setq indent-guide-recursive t)
     ;(setq indent-guide-threshold 1)
