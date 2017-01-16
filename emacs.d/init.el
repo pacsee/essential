@@ -183,6 +183,7 @@
 )
 
 (use-package helm-projectile)
+(use-package helm-swoop)
 (use-package flx-ido
     :config
     :disabled ;; due to haveing grizzl
@@ -203,10 +204,10 @@
 (use-package fill-column-indicator
     :init
     (setq fci-rule-column 79)
-    :config
-    (add-hook 'org-mode 'fci-mode)
-    (add-hook 'python-mode 'fci-mode)
-    (add-hook 'markdown-mode 'fci-mode)
+    (add-hook 'org-mode-hook 'fci-mode)
+    (add-hook 'python-mode-hook 'fci-mode)
+    (add-hook 'markdown-mode-hook 'fci-mode)
+    ;:config
     ;(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
     ;(global-fci-mode 1)
 )
@@ -251,7 +252,7 @@
 
 (require 'whitespace)
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Useless-Whitespace.html
-(setq whitespace-style '(face empty tabs spaces newline empty big-indent trailing tab-mark)
+(setq whitespace-style '(face empty tabs spaces newline empty big-indent trailing tab-mark))
 ;; add lines-tail or lines to show too long lines
 (global-whitespace-mode t)
 
