@@ -19,6 +19,7 @@
 
 (setq show-paren-delay 0)
 (show-paren-mode 1)
+(setq column-number-mode t)
 (setq shell-file-name "bash")
 (setq shell-command-switch "-ic")
 
@@ -203,8 +204,11 @@
     :init
     (setq fci-rule-column 79)
     :config
-    (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-    (global-fci-mode 1)
+    (add-hook 'org-mode 'fci-mode)
+    (add-hook 'python-mode 'fci-mode)
+    (add-hook 'markdown-mode 'fci-mode)
+    ;(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+    ;(global-fci-mode 1)
 )
 ;(use-package ivy)
 ;(use-package swiper)
