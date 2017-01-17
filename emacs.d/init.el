@@ -36,7 +36,7 @@
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa-stable" . "https://stable.melpa.org/packages/")
-                         ;;("melpa" . "https://melpa.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")
 ))
 
 (package-initialize)
@@ -63,6 +63,25 @@
     :config
     (evil-leader/set-leader ",")
     (global-evil-leader-mode)
+)
+
+;; Check this
+;; https://github.com/dholm/tabbar
+(use-package evil-tabs
+    :config
+    :disabled
+    (global-evil-tabs-mode t)
+    (define-key evil-normal-state-map (kbd "C-0") (lambda() (interactive) (elscreen-goto 0)))
+    ;(define-key evil-normal-state-map (kbd "C- ") (lambda() (interactive) (elscreen-goto 0)))
+    (define-key evil-normal-state-map (kbd "C-1") (lambda() (interactive) (elscreen-goto 1)))
+    (define-key evil-normal-state-map (kbd "C-2") (lambda() (interactive) (elscreen-goto 2)))
+    (define-key evil-normal-state-map (kbd "C-3") (lambda() (interactive) (elscreen-goto 3)))
+    (define-key evil-normal-state-map (kbd "C-4") (lambda() (interactive) (elscreen-goto 4)))
+    (define-key evil-normal-state-map (kbd "C-5") (lambda() (interactive) (elscreen-goto 5)))
+    (define-key evil-normal-state-map (kbd "C-6") (lambda() (interactive) (elscreen-goto 6)))
+    (define-key evil-normal-state-map (kbd "C-7") (lambda() (interactive) (elscreen-goto 7)))
+    (define-key evil-normal-state-map (kbd "C-8") (lambda() (interactive) (elscreen-goto 8)))
+    (define-key evil-normal-state-map (kbd "C-9") (lambda() (interactive) (elscreen-goto 9)))
 )
 
 (use-package org
@@ -124,6 +143,20 @@
     :config
     (yas-global-mode 1)
 )
+
+(use-package general
+    :demand
+)
+
+(use-package zoom-frm
+    :commands zoom-in/out
+    :general
+    (:prefix "C-x"
+        "C-=" 'zoom-in/out
+        "C-+" 'zoom-in/out
+        "C--" 'zoom-in/out
+        "C-0" 'zoom-in/out))
+
 (use-package relative-line-numbers
     :config
     (global-relative-line-numbers-mode)
@@ -152,12 +185,14 @@
 
 (use-package sr-speedbar
     :config
-    (define-key evil-normal-state-map ",t" 'sr-speedbar-toggle)
+    ;(define-key evil-normal-state-map ",t" 'sr-speedbar-toggle)
 )
 
 ;;; Evil extensions
 (use-package evil-magit)
-(use-package evil-org)
+(use-package evil-org
+    :disabled
+)
 
 (use-package osx-clipboard
     :config
@@ -174,6 +209,7 @@
     :config
     (projectile-global-mode)
     (setq projectile-enable-caching t)
+    (define-key evil-normal-state-map ",," 'projectile-project-buffers-other-buffer)
     :init
     (unless (file-exists-p "~/.emacs.d/cache/")
       (make-directory "~/.emacs.d/cache")
@@ -181,12 +217,30 @@
     (setq projectile-cache-file "~/.emacs.d/cache/projectile.cache")
     (setq projectile-known-projects-file "~/.emacs.d/cache/projectile-bookmarks.eld")
 )
+(use-package ido
+    :init
+    (setq
+        ido-default-buffer-method 'selected-window
+        ido-enable-flex-matching t
+        ido-use-virtual-buffers t)
+    :config
+    (ido-everywhere)
+)
+(use-package ido-vertical-mode
+    :demand
+    :init
+    (ido-vertical-mode)
+)
+(use-package helm
+    :config
+    (define-key evil-normal-state-map ",t" 'helm-imenu)
+)
 
 (use-package helm-projectile)
 (use-package helm-swoop)
 (use-package flx-ido
     :config
-    :disabled ;; due to haveing grizzl
+    ;:disabled ;; due to haveing grizzl
     (flx-ido-mode 1)
     ;; disable ido faces to see flx highlights.
     (setq ido-enable-flex-matching t)
