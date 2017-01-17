@@ -55,7 +55,7 @@
 (use-package evil
     :config
     (evil-mode 1)
-    (define-key evil-normal-state-map ",b" 'ibuffer)
+    (define-key evil-normal-state-map ",b" 'ido-switch-buffer)
     (define-key evil-normal-state-map ",w" 'toggle-truncate-lines)
     (evil-set-initial-state 'term-mode 'emacs)
 )
@@ -69,6 +69,7 @@
 ;; https://github.com/dholm/tabbar
 (use-package evil-tabs
     :config
+    :disabled
     (global-evil-tabs-mode t)
     (define-key evil-normal-state-map (kbd "C-0") (lambda() (interactive) (elscreen-goto 0)))
     (define-key evil-normal-state-map (kbd "C-§") (lambda() (interactive) (elscreen-goto 0)))
