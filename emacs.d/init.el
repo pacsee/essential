@@ -69,9 +69,9 @@
 ;; https://github.com/dholm/tabbar
 (use-package evil-tabs
     :config
-    :disabled
     (global-evil-tabs-mode t)
     (define-key evil-normal-state-map (kbd "C-0") (lambda() (interactive) (elscreen-goto 0)))
+    (define-key evil-normal-state-map (kbd "C-§") (lambda() (interactive) (elscreen-goto 0)))
     ;(define-key evil-normal-state-map (kbd "C- ") (lambda() (interactive) (elscreen-goto 0)))
     (define-key evil-normal-state-map (kbd "C-1") (lambda() (interactive) (elscreen-goto 1)))
     (define-key evil-normal-state-map (kbd "C-2") (lambda() (interactive) (elscreen-goto 2)))
