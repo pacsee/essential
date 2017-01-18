@@ -161,6 +161,9 @@
         "C-0" 'zoom-in/out))
 
 (use-package relative-line-numbers
+    :init
+    (setq relative-line-numbers-max-count 100)
+    (setq relative-line-numbers-delay 0.05)
     :config
     (global-relative-line-numbers-mode)
     (set-face-foreground 'linum "yellow")
