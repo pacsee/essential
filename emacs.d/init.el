@@ -49,6 +49,8 @@
 (setq use-package-always-ensure t)
 (require 'use-package)
 
+(load-file "~/.emacs.d/themes.el")
+
 ;;;; Packages to install
 ;;; Main packages
 
@@ -225,6 +227,7 @@
         ido-enable-flex-matching t
         ido-use-virtual-buffers t)
     :config
+    (ido-mode)
     (ido-everywhere)
 )
 (use-package ido-vertical-mode
@@ -312,4 +315,3 @@
 (global-whitespace-mode t)
 
 
-(load-file "~/.emacs.d/themes.el")
