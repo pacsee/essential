@@ -12,6 +12,9 @@ emacs.d/tmp
 emacs.d/backup
 emacs.d/autosave
 emacs.d/eshell/history
+emacs.d/bookmarks
+emacs.d/eshell
+emacs.d/recentf
 _local
 .netrwhist
 .VimballRecord
