@@ -59,6 +59,7 @@
     (evil-mode 1)
     (define-key evil-normal-state-map ",b" 'ido-switch-buffer)
     (define-key evil-normal-state-map ",w" 'toggle-truncate-lines)
+    (define-key evil-normal-state-map ",s" 'whitespace-cleanup)
     (evil-set-initial-state 'term-mode 'emacs)
 )
 (use-package evil-leader
@@ -316,5 +317,3 @@
 (setq whitespace-style '(face empty tabs spaces newline empty big-indent trailing tab-mark))
 ;; add lines-tail or lines to show too long lines
 (global-whitespace-mode t)
-
-
