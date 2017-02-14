@@ -22,8 +22,10 @@
 (setq column-number-mode t)
 (setq shell-file-name "bash")
 (setq shell-command-switch "-ic")
-;(setq-default indent-tabs-mode nil)
-;(setq indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
+(setq indent-tabs-mode nil)
+(setq c-tab-always-indent nil)
+(setq c-syntactic-indentation nil)
 ;(setq-default tab-always-indent nil)
 ;(setq tab-always-indent nil)
 
