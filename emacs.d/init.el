@@ -22,6 +22,10 @@
 (setq column-number-mode t)
 (setq shell-file-name "bash")
 (setq shell-command-switch "-ic")
+;(setq-default indent-tabs-mode nil)
+;(setq indent-tabs-mode nil)
+;(setq-default tab-always-indent nil)
+;(setq tab-always-indent nil)
 
 ;;; UI Setup
 (toggle-scroll-bar -1)
@@ -61,6 +65,7 @@
     (define-key evil-normal-state-map ",w" 'toggle-truncate-lines)
     (define-key evil-normal-state-map ",s" 'whitespace-cleanup)
     (evil-set-initial-state 'term-mode 'emacs)
+    (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
 )
 (use-package evil-leader
     :config
@@ -314,6 +319,6 @@
 
 (require 'whitespace)
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Useless-Whitespace.html
-(setq whitespace-style '(face empty tabs spaces newline empty big-indent trailing tab-mark))
+(setq whitespace-style '(face empty tabs spaces newline empty trailing tab-mark))
 ;; add lines-tail or lines to show too long lines
 (global-whitespace-mode t)
