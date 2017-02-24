@@ -324,3 +324,18 @@
 (setq whitespace-style '(face empty tabs spaces newline empty trailing tab-mark))
 ;; add lines-tail or lines to show too long lines
 (global-whitespace-mode t)
+
+
+(defun cs/run-test (test-name)
+  (interactive "sTest that: ")
+  (let* ((git-root (jjl/git-root))
+         (default-directory git-root))
+          (compile (concat "./run.sh unittests run-contexts -sv " test-name))))
+
+(defun jjl/current-path ()
+    (or (buffer-file-name) default-directory))
+
+(defun jjl/git-root ()
+    (let ((dir-path (jjl/current-path)))
+        (and dir-path
+            (file-truename (locate-dominating-file dir-path ".git")))))
