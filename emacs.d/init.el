@@ -56,6 +56,7 @@
 (require 'use-package)
 
 (load-file "~/.emacs.d/themes.el")
+(set-face-attribute 'default nil :height 150)
 
 ;;;; Packages to install
 ;;; Main packages
@@ -67,7 +68,7 @@
     (define-key evil-normal-state-map ",w" 'toggle-truncate-lines)
     (define-key evil-normal-state-map ",s" 'whitespace-cleanup)
     (evil-set-initial-state 'term-mode 'emacs)
-    (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
+    ;(define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
 )
 (use-package evil-leader
     :config
@@ -138,9 +139,9 @@
     (add-hook 'neotree-mode-hook
         (lambda ()
             (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter-vertical-split)
-            (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter-hide)
+            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter-hide)
             (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-quick-look)))
+            (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)))
 )
 
 (use-package magit
@@ -158,6 +159,7 @@
 (use-package general
     :demand
 )
+
 
 (use-package zoom-frm
     :commands zoom-in/out
@@ -327,10 +329,22 @@
 
 
 (defun cs/run-test (test-name)
-  (interactive "sTest that: ")
+  (interactive "sTest that (src/): ")
+  (save-some-buffers t)
   (let* ((git-root (jjl/git-root))
          (default-directory git-root))
-          (compile (concat "./run.sh unittests run-contexts -sv " test-name))))
+    (compile (concat "DEV_ENV=true ./run.sh unittests run-contexts -sv src/" test-name))))
+
+(setq directory-abbrev-alist '(("^/opt/procurement" . "/Users/csaba/work/made.com/procurement")))
+
+(global-set-key [f5] 'cs/run-test)
+(global-set-key [S-f5] 'recompile)
+
+(defun cs/run-all-test ()
+  (interactive)
+  (let* ((git-root (jjl/git-root))
+         (default-directory git-root))
+          (compile (concat "DEV_ENV=true ./run.sh unittests run-contexts -sv src/"))))
 
 (defun jjl/current-path ()
     (or (buffer-file-name) default-directory))
@@ -339,3 +353,14 @@
     (let ((dir-path (jjl/current-path)))
         (and dir-path
             (file-truename (locate-dominating-file dir-path ".git")))))
+
+;(defun my-compilation-hook ()
+;(when (not (get-buffer-window "*compilation*"))
+;(save-selected-window
+;(save-excursion
+;(let* ((w (split-window-vertically))
+;(h (window-height w)))
+;(select-window w)
+;(switch-to-buffer "*compilation*")
+;)))))
+;(add-hook 'compilation-mode-hook 'my-compilation-hook)
