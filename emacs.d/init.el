@@ -331,6 +331,14 @@
 
 (setq compilation-scroll-output t)
 
+(defun cs/run-python()
+  (interactive)
+  (let* ((git-root (jjl/git-root))
+         (default-directory git-root)
+         (compilation-environment cs-run-env))
+    (compile cs-python t)))
+(global-set-key [f3] 'cs/run-python)
+
 (defun cs/run (test-name interactive)
   (interactive
    (let ((string (read-string (concat "Run that: " cs-run-prefix) nil 'run-history)))
