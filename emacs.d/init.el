@@ -344,8 +344,9 @@
    (let ((string (read-string (concat "Run that: " cs-run-prefix) nil 'run-history)))
     (list  string nil)))
   (let* ((git-root (jjl/git-root))
-         (default-directory git-root))
-    (setq compilation-environment cs-run-env)
+         (default-directory git-root)
+         (cs-env (concat "PATH=" cs-run-path ":" (getenv "PATH") " " cs-run-env))
+         (compilation-environment cs-env))
     (compile (concat cs-run-prefix test-name) interactive)))
 
 (defun cs/run-interactive (test-name interactive)
