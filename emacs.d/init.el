@@ -328,10 +328,10 @@
 ;; add lines-tail or lines to show too long lines
 (global-whitespace-mode t)
 
+(setq compilation-scroll-output t)
 
 (defun cs/run (test-name)
-  (print (concat "Prefix: " cs-run-prefix))
-  (interactive "sRun that: ")
+  (interactive "sRun that:")
   (save-some-buffers t)
   (let* ((git-root (jjl/git-root))
          (default-directory git-root))

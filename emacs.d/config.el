@@ -11,7 +11,10 @@
     (zoom-frm evil-tabs general fill-column-indicator indent-guide grizzl flx-ido relative-line-numbers helm-projectile exec-path-from-shell evil-leader projectile-helm projectile use-package osx-clipboard theme-changer solarized-theme dockerfile-mode ag ansible ansible-vault evil-magit ipython anaconda-mode python-mode evil-org org yaml-mode yasnippet magit sr-speedbar markdown-mode neotree evil)))
  '(safe-local-variable-values
    (quote
-    ((cs-run-prefix . "./run.sh acceptance ")
+    ((cs-prompt . "sWhich test (src/): ")
+     (cs-run-prefix . "DEV_ENV=true ./run.sh acceptance run-contexts -sv src/")
+     (cs-run-prefix . "DEV_ENV=true ./run.sh acceptance ")
+     (cs-run-prefix . "./run.sh acceptance ")
      (cs-run-env . "DEV_ENV=true")
      (cs-run-prefix . "./run.sh unittest")
      (my-other-local-var . "bbb")
