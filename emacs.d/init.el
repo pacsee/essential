@@ -282,6 +282,7 @@
     ;(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
     ;(global-fci-mode 1)
 )
+
 ;(use-package ivy)
 ;(use-package swiper)
 ;(use-package counsel
@@ -328,6 +329,28 @@
 (global-whitespace-mode t)
 
 
+(defun cs/run (test-name)
+  (print (concat "Prefix: " cs-run-prefix))
+  (interactive "sRun that: ")
+  (save-some-buffers t)
+  (let* ((git-root (jjl/git-root))
+         (default-directory git-root))
+    (setq compilation-environment cs-run-env)
+    (compile (concat cs-run-prefix test-name))))
+
+(defun cs/run-interactive (test-name)
+  (interactive (format "sRun that: %s" cs-run-prefix))
+  (save-some-buffers t)
+  (let* ((git-root (jjl/git-root))
+         (default-directory git-root))
+    (setq compilation-environment cs-run-env)
+    (compile (concat cs-run-prefix test-name) t)))
+
+(global-set-key [f4] 'cs/run)
+(global-set-key [M-f4] 'cs/run-interactive)
+(global-set-key [S-f4] 'recompile)
+
+
 (defun cs/run-test (test-name)
   (interactive "sTest that (src/): ")
   (save-some-buffers t)
@@ -335,9 +358,17 @@
          (default-directory git-root))
     (compile (concat "DEV_ENV=true ./run.sh unittests run-contexts -sv src/" test-name))))
 
+(defun cs/run-debug (test-name)
+  (interactive "sDebug that (src/): ")
+  (save-some-buffers t)
+  (let* ((git-root (jjl/git-root))
+         (default-directory git-root))
+    (pdb (concat "env DEV_ENV=true ./run.sh unittests run-contexts -sv src/" test-name))))
+
 (setq directory-abbrev-alist '(("^/opt/procurement" . "/Users/csaba/work/made.com/procurement")))
 
 (global-set-key [f5] 'cs/run-test)
+(global-set-key [f6] 'cs/run-debug)
 (global-set-key [S-f5] 'recompile)
 
 (defun cs/run-all-test ()
@@ -353,6 +384,7 @@
     (let ((dir-path (jjl/current-path)))
         (and dir-path
             (file-truename (locate-dominating-file dir-path ".git")))))
+(add-hook 'c-mode-common-hook #'hs-minor-mode)
 
 ;(defun my-compilation-hook ()
 ;(when (not (get-buffer-window "*compilation*"))
@@ -364,3 +396,16 @@
 ;(switch-to-buffer "*compilation*")
 ;)))))
 ;(add-hook 'compilation-mode-hook 'my-compilation-hook)
+
+(progn
+  (define-prefix-command 'cs-map)
+  (define-key cs-map (kbd "§") 'hs-toggle-hiding)
+  (define-key cs-map (kbd "1") 'hs-hide-all)
+  (define-key cs-map (kbd "2") 'hs-show-block)
+  (define-key cs-map (kbd "3") 'hs-hide-level)
+  (define-key cs-map (kbd "4") 'hs-hide-block)
+  (define-key cs-map (kbd "5") 'hs-show-all)
+)
+
+(global-set-key (kbd "M-§") cs-map)
+(add-hook 'python-mode-hook #'hs-minor-mode)
