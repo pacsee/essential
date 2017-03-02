@@ -16,7 +16,8 @@
 ;(add-to-list 'load-path "~/.emacs.d/plugins/")
 ;(progn (cd "~/.emacs.d/plugins/")
 ;       (normal-top-level-add-subdirs-to-load-path))
-
+(setq enable-local-variables :all)
+(setq enable-local-eval :all)
 (setq show-paren-delay 0)
 (show-paren-mode 1)
 (setq column-number-mode t)
@@ -330,25 +331,32 @@
 
 (setq compilation-scroll-output t)
 
-(defun cs/run (test-name)
-  (interactive "sRun that:")
-  (save-some-buffers t)
+(defun cs/run (test-name interactive)
+  (interactive
+   (let ((string (read-string (concat "Run that: " cs-run-prefix) nil 'run-history)))
+    (list  string nil)))
   (let* ((git-root (jjl/git-root))
          (default-directory git-root))
     (setq compilation-environment cs-run-env)
-    (compile (concat cs-run-prefix test-name))))
+    (compile (concat cs-run-prefix test-name) interactive)))
 
-(defun cs/run-interactive (test-name)
-  (interactive (format "sRun that: %s" cs-run-prefix))
-  (save-some-buffers t)
+(defun cs/run-interactive (test-name interactive)
+  (interactive
+   (let ((string (read-string (concat "Run that interactive: " cs-run-prefix) nil 'run-history)))
+    (list  string t)))
   (let* ((git-root (jjl/git-root))
          (default-directory git-root))
     (setq compilation-environment cs-run-env)
-    (compile (concat cs-run-prefix test-name) t)))
+    (compile (concat cs-run-prefix test-name) interactive)))
+
 
 (global-set-key [f4] 'cs/run)
 (global-set-key [M-f4] 'cs/run-interactive)
 (global-set-key [S-f4] 'recompile)
+
+(add-hook 'comint-mode
+    (lambda ()
+        (define-key evil-normal-state-local-map (kbd "q") 'quit-window)))
 
 
 (defun cs/run-test (test-name)
@@ -409,3 +417,13 @@
 
 (global-set-key (kbd "M-§") cs-map)
 (add-hook 'python-mode-hook #'hs-minor-mode)
+
+(defun test-main-multi ()
+  (interactive)
+  (let ((choice (completing-read-multiple "Select: " '("item1" "item2" "item3"))))
+    (message "%S" choice)))
+
+(defun test-main ()
+  (interactive)
+  (let ((choice (completing-read "Select: " '("item1" "item2" "item3"))))
+    (message "%S" choice)))
