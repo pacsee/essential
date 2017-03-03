@@ -292,6 +292,8 @@
     (ansi-color-apply-on-region (point-min) (point-max))
     (toggle-read-only))
     (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+    (add-hook 'eshell-preoutput-filter-functions
+           'ansi-color-filter-apply)
 )
 ;(use-package ivy)
 ;(use-package swiper)
