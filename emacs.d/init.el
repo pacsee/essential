@@ -284,6 +284,15 @@
     ;(global-fci-mode 1)
 )
 
+(use-package ansi-color
+    :init
+    (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+    (defun colorize-compilation-buffer ()
+    (toggle-read-only)
+    (ansi-color-apply-on-region (point-min) (point-max))
+    (toggle-read-only))
+    (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+)
 ;(use-package ivy)
 ;(use-package swiper)
 ;(use-package counsel
