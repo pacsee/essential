@@ -342,6 +342,36 @@
 
 (setq compilation-scroll-output t)
 
+(defun cs/runner (cmd)
+  (interactive
+   (let ((string (read-string (concat "Command: ") nil 'runner-history)))
+    (list  string)))
+  (save-some-buffers t)
+  (let* ((default-directory cs-project-root)
+         (cs-env (concat "PATH=" cs-run-path ":" (getenv "PATH")))
+         (compilation-environment (list cs-env))
+         )
+    (compile cmd)))
+
+(defun cs/rerunner ()
+  (interactive)
+  (save-some-buffers t)
+  (let* ((default-directory cs-project-root)
+         (cs-env (concat "PATH=" cs-run-path ":" (getenv "PATH")))
+         (compilation-environment (list cs-env))
+         )
+    (recompile)))
+
+;; Runner
+(progn
+  (define-prefix-command 'cs-runner-map)
+  (define-key cs-runner-map (kbd "<f5>") 'cs/rerunner)
+  (define-key cs-runner-map (kbd "r") 'cs/runner)
+  (define-key cs-runner-map (kbd "i") 'comint-mode)
+)
+
+(global-set-key (kbd "<f5>") cs-runner-map)
+
 (defun cs/run-python()
   (interactive)
   (let* ((git-root (jjl/git-root))
@@ -350,16 +380,15 @@
     (compile cs-python t)))
 (global-set-key [f3] 'cs/run-python)
 
-(defun cs/run (test-name interactive)
+(defun cs/run (test-name)
   (interactive
    (let ((string (read-string (concat "Run that: " cs-run-prefix) nil 'run-history)))
-    (list  string nil)))
-  (let* ((git-root (jjl/git-root))
-         (default-directory cs-project-root)
+    (list  string)))
+  (let* ((default-directory cs-project-root)
          (cs-env (concat "PATH=" cs-run-path ":" (getenv "PATH")))
          (compilation-environment (list cs-run-env cs-env))
          )
-    (compile (concat cs-run-prefix test-name) interactive)))
+    (compile (concat cs-run-prefix test-name))))
 
 (defun cs/run-interactive (test-name interactive)
   (interactive
@@ -370,10 +399,6 @@
     (setq compilation-environment cs-run-env)
     (compile (concat cs-run-prefix test-name) interactive)))
 
-
-(global-set-key [f4] 'cs/run)
-(global-set-key [M-f4] 'cs/run-interactive)
-(global-set-key [S-f4] 'recompile)
 
 (add-hook 'comint-mode
     (lambda ()
@@ -396,9 +421,6 @@
 
 (setq directory-abbrev-alist '(("^/opt/procurement" . "/Users/csaba/work/made.com/procurement")))
 
-(global-set-key [f5] 'cs/run-test)
-(global-set-key [f6] 'cs/run-debug)
-(global-set-key [S-f5] 'recompile)
 
 (defun cs/run-all-test ()
   (interactive)
