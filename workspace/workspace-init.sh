@@ -1,4 +1,4 @@
-PY=$(which python)
+PY=$(which python2)
 CMD='/Users/csaba/opt/config/workspace/workspace.py'
 
 function workspace() {
@@ -7,6 +7,12 @@ function workspace() {
 
 function enter() {
     eval "$($PY $CMD activate $1)"
+}
+
+function wswrap() {
+    eval "$($PY $CMD activate $1)"
+    shift
+    $@
 }
 
  function _enter()   #  By convention, the function name

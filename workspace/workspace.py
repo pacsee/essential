@@ -118,6 +118,72 @@ class ActivateCommand(Command):
         return instruction(stream, param, self)
 
 
+class EmacsCommand(Command):
+
+    def __init__(self, args):
+        super(EmacsCommand, self).__init__(args)
+        self.context = {}
+
+    @classmethod
+    def get_parser(cls, subparser, *args, **kwargs):
+        parser = super(EmacsCommand, cls).get_parser(subparser, *args, **kwargs)
+        parser.add_argument(
+            'workspace', help='name of workspace', choices=WORKSPACES
+        )
+        return parser
+
+    def __call__(self):
+        fn = os.path.join(HOME, self.args.workspace + '.yml')
+        stream = self.generate_instructions(fn)
+        print("".join(stream))
+
+    def generate_instructions(self, fn):
+        stream = []
+        instructions = self.get_instructions(fn)
+        for instruction in instructions:
+            if isinstance(instruction, dict):
+                for name, param in instruction.items():
+                    command = self.get_instruction(name, stream, param)
+                    command.handle()
+            else:
+                command = self.get_instruction(instruction, stream)
+                command.handle()
+        return stream
+
+    def get_instructions(self, fn):
+        with open(fn) as f:
+            return yaml.load(f)
+
+    def get_instruction(self, name, stream, param=None):
+        instruction = {
+            'conda': CondaGenerator,
+            'bash': BashGenerator,
+            'docker-machine': DockerMachineGenerator,
+            'env': EnvGenerator,
+            'path': PathGenerator,
+            'pythonpath': PythonPathGenerator,
+        }.get(name)
+        if not instruction:
+            sys.exit("The instruction '%s' doesn't exist" % name)
+        return instruction(stream, param, self)
+
+
+class Generator(object):
+    def __init__(self, stream, param, generator):
+        self.stream = stream
+        self.param = param
+        self.generator = generator
+        self.context = self.generator.context
+
+    def handle(self):
+        pass
+
+    def writeln(self, string):
+        self.stream.append(string.format(**self.context))
+        self.stream.append(os.linesep)
+
+
+
 class Generator(object):
     def __init__(self, stream, param, generator):
         self.stream = stream
@@ -238,6 +304,7 @@ def get_args(prog, argv):
     ActivateCommand.get_parser(subparser, 'activate', help='Activate a workspace')
     InitCommand.get_parser(subparser, 'init', help='initialize')
     LSCommand.get_parser(subparser, 'ls', help='list workspaces')
+    EmacsCommand.get_parser(subparser, 'emacs', help='list workspaces')
     return parser.parse_args(argv)
 
 
