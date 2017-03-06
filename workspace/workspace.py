@@ -118,15 +118,15 @@ class ActivateCommand(Command):
         return instruction(stream, param, self)
 
 
-class EmacsCommand(Command):
+class WrapCommand(Command):
 
     def __init__(self, args):
-        super(EmacsCommand, self).__init__(args)
+        super(WrapCommand, self).__init__(args)
         self.context = {}
 
     @classmethod
     def get_parser(cls, subparser, *args, **kwargs):
-        parser = super(EmacsCommand, cls).get_parser(subparser, *args, **kwargs)
+        parser = super(WrapCommand, cls).get_parser(subparser, *args, **kwargs)
         parser.add_argument(
             'workspace', help='name of workspace', choices=WORKSPACES
         )
@@ -144,7 +144,8 @@ class EmacsCommand(Command):
             if isinstance(instruction, dict):
                 for name, param in instruction.items():
                     command = self.get_instruction(name, stream, param)
-                    command.handle()
+                    if command:
+                        command.handle()
             else:
                 command = self.get_instruction(instruction, stream)
                 command.handle()
@@ -156,7 +157,7 @@ class EmacsCommand(Command):
 
     def get_instruction(self, name, stream, param=None):
         instruction = {
-            'conda': CondaGenerator,
+            'conda': CondaPathGenerator,
             'bash': BashGenerator,
             'docker-machine': DockerMachineGenerator,
             'env': EnvGenerator,
@@ -164,24 +165,8 @@ class EmacsCommand(Command):
             'pythonpath': PythonPathGenerator,
         }.get(name)
         if not instruction:
-            sys.exit("The instruction '%s' doesn't exist" % name)
+            return None
         return instruction(stream, param, self)
-
-
-class Generator(object):
-    def __init__(self, stream, param, generator):
-        self.stream = stream
-        self.param = param
-        self.generator = generator
-        self.context = self.generator.context
-
-    def handle(self):
-        pass
-
-    def writeln(self, string):
-        self.stream.append(string.format(**self.context))
-        self.stream.append(os.linesep)
-
 
 
 class Generator(object):
@@ -209,6 +194,16 @@ class CondaGenerator(Generator):
 
     def handle(self):
         self.writeln('source activate %s' % self.param)
+
+
+class CondaPathGenerator(Generator):
+
+    def generate_path_list(self):
+        path = '~/anaconda/envs/%s/bin' % self.param
+        return os.pathsep.join([path, '$PATH'])
+
+    def handle(self):
+        self.writeln('export PATH=%s' % self.generate_path_list())
 
 
 class SourceGenerator(Generator):
@@ -304,7 +299,7 @@ def get_args(prog, argv):
     ActivateCommand.get_parser(subparser, 'activate', help='Activate a workspace')
     InitCommand.get_parser(subparser, 'init', help='initialize')
     LSCommand.get_parser(subparser, 'ls', help='list workspaces')
-    EmacsCommand.get_parser(subparser, 'emacs', help='list workspaces')
+    WrapCommand.get_parser(subparser, 'wrap', help='wrap command')
     return parser.parse_args(argv)
 
 

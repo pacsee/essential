@@ -10,8 +10,9 @@ function enter() {
 }
 
 function wswrap() {
-    eval "$($PY $CMD activate $1)"
+    ws=$1
     shift
+    eval "$($PY $CMD wrap $ws)"
     $@
 }
 
