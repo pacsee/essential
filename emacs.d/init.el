@@ -183,6 +183,14 @@
 
 ;;; Modes
 (use-package yaml-mode)
+(use-package js2-mode
+  :ensure t
+  :pin gnu)
+(use-package rjsx-mode
+    :config
+    (define-key rjsx-mode-map "<" nil)
+    (define-key rjsx-mode-map (kbd "C-d") nil)
+)
 (use-package python-mode
     :config
     (setq python-python-command "~/anaconda/bin/python3")
