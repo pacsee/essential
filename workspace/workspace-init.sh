@@ -13,7 +13,8 @@ function wswrap() {
     ws=$1
     shift
     eval "$($PY $CMD wrap $ws)"
-    $@
+    ARGS=$(printf "%q " "$@")
+    eval "$ARGS"
 }
 
  function _enter()   #  By convention, the function name
