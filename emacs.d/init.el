@@ -356,8 +356,6 @@
     (list  string)))
   (save-some-buffers t)
   (let* ((default-directory cs-project-root)
-         ;(cs-env (concat "PATH=" cs-run-path ":" (getenv "PATH")))
-         ;(compilation-environment (list cs-env))
          )
     (compile (concat "wswrap " cs-workspace " " cmd))))
 
@@ -365,17 +363,22 @@
   (interactive)
   (save-some-buffers t)
   (let* ((default-directory cs-project-root)
-         ;(cs-env (concat "PATH=" cs-run-path ":" (getenv "PATH")))
-         ;(compilation-environment (list cs-env))
-         )
+        )
+
     (recompile)))
+
+(defun cs/interactive ()
+  (interactive)
+  (comint-mode)
+  (read-only-mode)
+)
 
 ;; Runner
 (progn
   (define-prefix-command 'cs-runner-map)
   (define-key cs-runner-map (kbd "<f5>") 'cs/rerunner)
   (define-key cs-runner-map (kbd "r") 'cs/runner)
-  (define-key cs-runner-map (kbd "i") 'comint-mode)
+  (define-key cs-runner-map (kbd "i") 'cs/interactive)
 )
 
 (global-set-key (kbd "<f5>") cs-runner-map)
