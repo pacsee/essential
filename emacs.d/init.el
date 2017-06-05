@@ -27,6 +27,7 @@
 (setq indent-tabs-mode nil)
 (setq c-tab-always-indent nil)
 (setq c-syntactic-indentation nil)
+(setq csaba-mode-line-format "[%*] %f:(%l,%c %p)")
 ;(setq-default tab-always-indent nil)
 ;(setq tab-always-indent nil)
 
@@ -192,7 +193,8 @@
   (defun cp/js2-setup()
     (setq js2-basic-offset 2)
     (setq evil-shift-width 2)
-    (setq mode-line-format (list "[%*] %f:(%l,%c %p) {%b}")))
+    (setq mode-line-format csaba-mode-line-format)
+    )
 
   (add-hook 'js2-mode-hook 'cp/js2-setup)
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -203,12 +205,20 @@
     :config
     (define-key rjsx-mode-map "<" nil)
     (define-key rjsx-mode-map (kbd "C-d") nil)
+    (defun cp/rjsx-setup()
+      (setq js2-basic-offset 2)
+      (setq evil-shift-width 2)
+      (setq mode-line-format csaba-mode-line-format))
+    (add-hook 'python-mode-hook 'cp/rjsx-setup)
 )
 (use-package python-mode
     :diminish python-mode
     :config
     (setq python-python-command "~/anaconda/bin/python3")
     (setq python-shell-interpreter "~/anaconda/bin/python3")
+      (defun cp/python-setup()
+        (setq mode-line-format csaba-mode-line-format))
+    (add-hook 'python-mode-hook 'cp/python-setup)
 )
 (use-package markdown-mode)
 (use-package dockerfile-mode)
@@ -496,3 +506,4 @@
   (interactive)
   (let ((choice (completing-read "Select: " '("item1" "item2" "item3"))))
     (message "%S" choice)))
+
