@@ -153,6 +153,7 @@
 ;;; Tools
 (use-package ag)
 (use-package yasnippet
+    :diminish yasnippet
     :config
     (yas-global-mode 1)
 )
@@ -185,13 +186,26 @@
 (use-package yaml-mode)
 (use-package js2-mode
   :ensure t
-  :pin gnu)
+  :diminish js2-mode
+  :pin gnu
+  :config
+  (defun cp/js2-setup()
+    (setq js2-basic-offset 2)
+    (setq evil-shift-width 2)
+    (setq mode-line-format (list "[%*] %f:(%l,%c %p) {%b}")))
+
+  (add-hook 'js2-mode-hook 'cp/js2-setup)
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+)
+
 (use-package rjsx-mode
+    :diminish rjsx-mode
     :config
     (define-key rjsx-mode-map "<" nil)
     (define-key rjsx-mode-map (kbd "C-d") nil)
 )
 (use-package python-mode
+    :diminish python-mode
     :config
     (setq python-python-command "~/anaconda/bin/python3")
     (setq python-shell-interpreter "~/anaconda/bin/python3")
@@ -199,6 +213,7 @@
 (use-package markdown-mode)
 (use-package dockerfile-mode)
 (use-package anaconda-mode
+    :diminish anaconda-mode
     :config
     (add-hook 'python-mode-hook 'anaconda-mode)
 )
