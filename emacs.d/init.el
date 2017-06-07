@@ -28,6 +28,7 @@
 (setq c-tab-always-indent nil)
 (setq c-syntactic-indentation nil)
 (setq csaba-mode-line-format "[%*] %f:(%l,%c %p)")
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 ;(setq-default tab-always-indent nil)
 ;(setq tab-always-indent nil)
 
@@ -193,7 +194,6 @@
   (defun cp/js2-setup()
     (setq js2-basic-offset 2)
     (setq evil-shift-width 2)
-    (setq mode-line-format csaba-mode-line-format)
     )
 
   (add-hook 'js2-mode-hook 'cp/js2-setup)
@@ -208,7 +208,7 @@
     (defun cp/rjsx-setup()
       (setq js2-basic-offset 2)
       (setq evil-shift-width 2)
-      (setq mode-line-format csaba-mode-line-format))
+      )
     (add-hook 'python-mode-hook 'cp/rjsx-setup)
 )
 (use-package python-mode
@@ -216,9 +216,6 @@
     :config
     (setq python-python-command "~/anaconda/bin/python3")
     (setq python-shell-interpreter "~/anaconda/bin/python3")
-      (defun cp/python-setup()
-        (setq mode-line-format csaba-mode-line-format))
-    (add-hook 'python-mode-hook 'cp/python-setup)
 )
 (use-package markdown-mode)
 (use-package dockerfile-mode)
