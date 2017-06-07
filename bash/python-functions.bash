@@ -7,6 +7,8 @@ function ppjson () {
 function pyclean {
     find . -type f -name "*.py[co]" -delete
     find . -type d -name "__pycache__" -delete
+    find . -type d -name ".cache" -delete
+    find . -type f -name ".coverage" -delete
 }
 function pytags {
     # rm_tags
