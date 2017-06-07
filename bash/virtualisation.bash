@@ -30,3 +30,7 @@ function docker-cleanup {
     docker rmi $(docker images -q -f dangling=true)
     docker volume rm $(docker volume ls -qf dangling=true)
 }
+
+function docker-time-update {
+    docker run -it --rm --privileged --pid=host debian nsenter -t 1 -m -u -n -i date -u $(date -u +%m%d%H%M%Y)
+}
