@@ -29,6 +29,7 @@
 (setq c-syntactic-indentation nil)
 (setq csaba-mode-line-format "[%*] %f:(%l,%c %p)")
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+(setq confirm-kill-emacs 'y-or-n-p)
 ;(setq-default tab-always-indent nil)
 ;(setq tab-always-indent nil)
 
@@ -61,91 +62,14 @@
 (load-file "~/.emacs.d/themes.el")
 (set-face-attribute 'default nil :height 150)
 
+(add-to-list 'load-path "~/.emacs.d/config/")
+;;;; Load configurations
+(require 'load-all-config)
+
+
 ;;;; Packages to install
 ;;; Main packages
 
-(use-package evil
-    :config
-    (evil-mode 1)
-    (define-key evil-normal-state-map ",b" 'ido-switch-buffer)
-    (define-key evil-normal-state-map ",w" 'toggle-truncate-lines)
-    (define-key evil-normal-state-map ",s" 'whitespace-cleanup)
-    (evil-set-initial-state 'term-mode 'emacs)
-    ;(define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
-)
-(use-package evil-leader
-    :config
-    (evil-leader/set-leader ",")
-    (global-evil-leader-mode)
-)
-
-;; Check this
-;; https://github.com/dholm/tabbar
-(use-package evil-tabs
-    :config
-    :disabled
-    (global-evil-tabs-mode t)
-    (define-key evil-normal-state-map (kbd "C-0") (lambda() (interactive) (elscreen-goto 0)))
-    (define-key evil-normal-state-map (kbd "C-§") (lambda() (interactive) (elscreen-goto 0)))
-    ;(define-key evil-normal-state-map (kbd "C- ") (lambda() (interactive) (elscreen-goto 0)))
-    (define-key evil-normal-state-map (kbd "C-1") (lambda() (interactive) (elscreen-goto 1)))
-    (define-key evil-normal-state-map (kbd "C-2") (lambda() (interactive) (elscreen-goto 2)))
-    (define-key evil-normal-state-map (kbd "C-3") (lambda() (interactive) (elscreen-goto 3)))
-    (define-key evil-normal-state-map (kbd "C-4") (lambda() (interactive) (elscreen-goto 4)))
-    (define-key evil-normal-state-map (kbd "C-5") (lambda() (interactive) (elscreen-goto 5)))
-    (define-key evil-normal-state-map (kbd "C-6") (lambda() (interactive) (elscreen-goto 6)))
-    (define-key evil-normal-state-map (kbd "C-7") (lambda() (interactive) (elscreen-goto 7)))
-    (define-key evil-normal-state-map (kbd "C-8") (lambda() (interactive) (elscreen-goto 8)))
-    (define-key evil-normal-state-map (kbd "C-9") (lambda() (interactive) (elscreen-goto 9)))
-)
-
-(use-package org
-    :init
-    (setq org-src-fontify-natively t)
-    (setq org-babel-python-command "~/anaconda/bin/python3")
-    (load-file "~/.emacs.d/includes/org-babel-errors.el")
-    :config
-    (setq initial-major-mode 'org-mode)
-    (org-babel-do-load-languages
-     'org-babel-load-languages
-     '((python . t)))
-    (setq initial-scratch-message "\
-# This buffer is for notes you don't want to save, and for Python code.
-# keys: 
-#   python_ + TAB for python yasnipet
-#   C-c C-x C-v: M-x org-toggle-inline-images
-#   C-c C-v C-b: M-x org-babel-excute-buffer
-#   C-c ': edit block - C-c C-c: execute code block
-
-#+BEGIN_SRC python :result value
-  import sys
-  return sys.version
-#+END_SRC
-")
-)
-
-(defun neo-open-file-hide (full-path &optional arg)
-  "Open a file node and hides tree."
-  (neo-global--select-mru-window arg)
-  (find-file full-path)
-  (neotree-hide))
-
-(defun neotree-enter-hide (&optional arg)
-  "Enters file and hides neotree directly"
-  (interactive "P")
-  (neo-buffer--execute arg 'neo-open-file-hide 'neo-open-dir))
-
-(use-package neotree
-    :config
-    (setq neo-window-width 35)
-    (define-key evil-normal-state-map ",o" 'neotree-toggle)
-    (add-hook 'neotree-mode-hook
-        (lambda ()
-            (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter-vertical-split)
-            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter-hide)
-            (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-            (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)))
-)
 
 (use-package magit
     :bind (("C-x g" . magit-status)
@@ -209,7 +133,7 @@
       (setq js2-basic-offset 2)
       (setq evil-shift-width 2)
       )
-    (add-hook 'python-mode-hook 'cp/rjsx-setup)
+    (add-hook 'rjsx-mode-hook 'cp/rjsx-setup)
 )
 (use-package python-mode
     :diminish python-mode
