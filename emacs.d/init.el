@@ -99,6 +99,7 @@
         "C-0" 'zoom-in/out))
 
 (use-package relative-line-numbers
+    :disabled
     :init
     (setq relative-line-numbers-max-count 100)
     (setq relative-line-numbers-delay 0.05)
