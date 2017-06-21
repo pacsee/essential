@@ -3,7 +3,7 @@
 
 (use-package evil
     :config
-    (evil-mode 0)
+    (evil-mode 1)
     (define-key evil-normal-state-map ",b" 'ido-switch-buffer)
     (define-key evil-normal-state-map ",w" 'toggle-truncate-lines)
     (define-key evil-normal-state-map ",s" 'whitespace-cleanup)
