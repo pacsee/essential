@@ -141,7 +141,6 @@
     (setq python-python-command "~/anaconda/bin/python3")
     (setq python-shell-interpreter "~/anaconda/bin/python3")
 )
-(use-package markdown-mode)
 (use-package dockerfile-mode)
 (use-package anaconda-mode
     :diminish anaconda-mode
@@ -227,6 +226,15 @@
     (indent-guide-global-mode)
 )
 
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "pandoc")
+)
+
 (use-package fill-column-indicator
     :init
     (setq fci-rule-column 79)
@@ -249,14 +257,6 @@
     (add-hook 'eshell-preoutput-filter-functions
            'ansi-color-filter-apply)
 )
-
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
 
 ;(use-package auctex)
 ;(use-package ivy)
