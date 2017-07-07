@@ -5,9 +5,10 @@ set -o notify
 
 # Don't use ^D to exit
 #set -o ignoreeof
-
-#allow CTRL-s to go trough
-stty -ixon
+if [ $TERM != 'dumb' ]; then
+    #allow CTRL-s to go trough
+    stty -ixon
+fi
 
 # Use case-insensitive filename globbing
 # shopt -s nocaseglob
@@ -46,12 +47,14 @@ export HISTTIMEFORMAT="[%Y-%m-%d - %H:%M:%S] " # timestamps
 export LESS=-R
 export MAILCHECK
 # prevent man pages from displaying bold text in black
-export LESS_TERMCAP_md=$'\E[01;36m'
+if [ $TERM != 'dumb' ]; then
+    export LESS_TERMCAP_md=$'\E[01;36m'
+fi
 
 # figure out supported ls options
 
 # nice modern GNU 'ls'
-if ls --color >/dev/null 2>&1; then
+if [ "$TERM" != "dumb" ] && [ ls --color >/dev/null 2>&1] ; then
     LS_OPTIONS='--color=auto'
 
 # old shitty OSX 'ls'
@@ -73,5 +76,4 @@ if [ "$TERM" != "dumb" ] && [ hash dircolors 2>/dev/null ]; then
 fi
 
 export PAGER=less
-
 

@@ -249,6 +249,16 @@
     (add-hook 'eshell-preoutput-filter-functions
            'ansi-color-filter-apply)
 )
+
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+
+;(use-package auctex)
 ;(use-package ivy)
 ;(use-package swiper)
 ;(use-package counsel
