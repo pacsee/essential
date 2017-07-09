@@ -54,7 +54,7 @@ fi
 # figure out supported ls options
 
 # nice modern GNU 'ls'
-if [ "$TERM" != "dumb" ] && [ ls --color >/dev/null 2>&1] ; then
+if [ "$TERM" != "dumb" ] && [ ls --color >/dev/null 2>&1 ] ; then
     LS_OPTIONS='--color=auto'
 
 # old shitty OSX 'ls'
