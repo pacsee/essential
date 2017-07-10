@@ -233,6 +233,8 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "pandoc")
+  :config
+  (add-hook 'markdown-mode-hook 'flyspell-mode)
 )
 
 (use-package fill-column-indicator

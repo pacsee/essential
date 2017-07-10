@@ -14,7 +14,7 @@
 (use-package neotree
     :config
     (setq neo-window-width 35)
-    (global-set-key (kbd "C-c o") 'neotree-toggle)
+    (global-set-key (kbd "s-.") 'neotree-toggle)
     (define-key evil-normal-state-map ",o" 'neotree-toggle)
     (add-hook 'neotree-mode-hook
         (lambda ()
