@@ -101,6 +101,7 @@ class ActivateCommand(Command):
         instruction = {
             'workdir': WorkDirGenerator,
             'conda': CondaGenerator,
+            'nvm': NvmGenerator,
             'source': SourceGenerator,
             'workon': WorkonGenerator,
             'bash': BashGenerator,
@@ -194,6 +195,12 @@ class CondaGenerator(Generator):
 
     def handle(self):
         self.writeln('source activate %s' % self.param)
+
+
+class NvmGenerator(Generator):
+
+    def handle(self):
+        self.writeln('nvm use %s' % self.param)
 
 
 class CondaPathGenerator(Generator):
