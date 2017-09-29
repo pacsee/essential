@@ -77,3 +77,4 @@ fi
 
 export PAGER=less
 
+export CONSUL_HOST=10.200.10.1

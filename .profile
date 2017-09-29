@@ -42,7 +42,7 @@ export CPPFLAGS
 
 if [[ -z $TMUX ]]; then
     # added by Miniconda3 3.19.0 installer
-    export PATH="$PATH:/Users/csaba/anaconda/bin"
+    export PATH="$PATH:/Users/csaba/anaconda3/bin"
 fi
 
 # source .bashrc if we're running Bash
@@ -58,3 +58,5 @@ fi
 if [ -a "$HOME/.profile_local" ]; then
     . $HOME/.profile_local
 fi
+
+# added by Anaconda3 5.0.0 installer
