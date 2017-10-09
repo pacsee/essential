@@ -58,5 +58,3 @@ fi
 if [ -a "$HOME/.profile_local" ]; then
     . $HOME/.profile_local
 fi
-
-# added by Anaconda3 5.0.0 installer
