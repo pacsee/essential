@@ -1,0 +1,16 @@
+PY=$(which python2)
+CMD='/Users/csaba/opt/config/workspace/workspace.py'
+
+function workspace() {
+    $PY $CMD $@
+}
+
+function enter() {
+    eval "$($PY $CMD activate $1)"
+}
+
+ws=$1
+shift
+eval "$($PY $CMD wrap $ws)"
+ARGS=$(printf "%q " "$@")
+eval "$ARGS"
