@@ -206,7 +206,7 @@ class NvmGenerator(Generator):
 class CondaPathGenerator(Generator):
 
     def generate_path_list(self):
-        path = '~/anaconda/envs/%s/bin' % self.param
+        path = '~/anaconda3/envs/%s/bin' % self.param
         return os.pathsep.join([path, '$PATH'])
 
     def handle(self):
