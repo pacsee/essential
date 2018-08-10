@@ -1,6 +1,7 @@
 [user]
-	email = csaba.palankai@gmail.com
+	email = csaba.palankai@made.com
 	name = Csaba Palankai
+	signingkey = 76A5FB8A6437EBC8
 [color]
     ui = auto
 [color "branch"]
@@ -52,3 +53,5 @@
 	trustExitCode = true
 [core]
 	excludesfile = ~/.gitignore_global
+[commit]
+	gpgSign = true
