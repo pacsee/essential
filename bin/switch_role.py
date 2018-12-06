@@ -32,10 +32,8 @@ def getProcessOutput(cmd):
 usage = "Usage: get-role-token <role> <destination_aws_account_number> <mfa-token>"
 role = sys.argv[1] if len(sys.argv) > 1 else sys.exit(usage)
 detination_account = sys.argv[2] if len(sys.argv) > 2 else sys.exit(usage)
-token = sys.argv[3] if len(sys.argv) > 3 else sys.exit(usage)
-
-#token = str.rstrip(
-#    getProcessOutput('get_otp_token.py'))
+#token = sys.argv[3] if len(sys.argv) > 3 else sys.exit(usage)
+token = getProcessOutput('get_otp_token.py').rstrip()
 
 
 user = json.loads(
