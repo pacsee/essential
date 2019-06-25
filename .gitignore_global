@@ -16,3 +16,4 @@ test-reports
 .vimrc_local
 .dir-locals.el
 .#*
+.vscode
